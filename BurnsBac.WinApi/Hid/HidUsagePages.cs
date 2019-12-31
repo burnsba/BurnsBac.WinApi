@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinApi.Hid
+namespace BurnsBac.WinApi.Hid
 {
     /// <summary>
     /// HID Usage pages.

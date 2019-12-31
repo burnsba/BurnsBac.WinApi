@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinApi.Hid.Usage
+namespace BurnsBac.WinApi.Hid.Usage
 {
     /// <summary>
     /// Usages for PowerDevice usage page (132).

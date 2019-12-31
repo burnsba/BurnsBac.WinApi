@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinApi.User32
+namespace BurnsBac.WinApi.User32
 {
     /// <summary>
     /// Union struct for <see cref="RawInput"/>. Contains data for the object.

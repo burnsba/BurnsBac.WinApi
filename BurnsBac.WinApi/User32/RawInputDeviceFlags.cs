@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinApi.User32
+namespace BurnsBac.WinApi.User32
 {
     /// <summary>
     /// Enumeration containing flags for a <see cref="RawInputDevice"/>.

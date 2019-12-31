@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinApi.User32
+namespace BurnsBac.WinApi.User32
 {
     /// <summary>
     /// Type flag for <see cref="RidDeviceInfo"/>.

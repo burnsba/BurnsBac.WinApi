@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
-using WinApi.Windows;
+using BurnsBac.WinApi.Windows;
 
-namespace WinApi.User32
+namespace BurnsBac.WinApi.User32
 {
     /// <summary>
     /// Function definitions for user32.dll.

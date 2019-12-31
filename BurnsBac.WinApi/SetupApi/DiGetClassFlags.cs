@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinApi.SetupApi
+namespace BurnsBac.WinApi.SetupApi
 {
     /// <summary>
     /// A variable of type DWORD that specifies control options that filter the device

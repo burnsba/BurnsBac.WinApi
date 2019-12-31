@@ -6,10 +6,12 @@
     <Company>Ben Burns</Company>
     <Product>BurnsBac.WinApi</Product>
     <Copyright>Ben Burns 2019</Copyright>
-    <FileVersion>1.1.5.1</FileVersion>
+    <FileVersion>1.1.5.2</FileVersion>
     <PackageProjectUrl>https://github.com/burnsba/BurnsBac.WinApi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/burnsba/BurnsBac.WinApi</RepositoryUrl>
     <PackageTags>win32, pinvoke, interop</PackageTags>
+    <Version>1.0.1</Version>
+    <PackageLicenseFile>COPYING</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -18,6 +20,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\COPYING">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

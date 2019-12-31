@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace WinApi.Kernel32
+namespace BurnsBac.WinApi.Kernel32
 {
     /// <summary>
     /// Function definitions for kernel32.dll.

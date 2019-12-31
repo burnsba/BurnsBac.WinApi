@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinApi.Hid
+namespace BurnsBac.WinApi.Hid
 {
     /// <summary>
     /// The HIDP_REPORT_TYPE enumeration type is used to specify a HID report type.

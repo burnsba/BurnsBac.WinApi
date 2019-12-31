@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace WinApi.SetupApi
+namespace BurnsBac.WinApi.SetupApi
 {
     /// <summary>
     /// An SP_DEVINFO_DATA structure defines a device instance that is a member of a device information set.

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
-using WinApi.Hid;
+using BurnsBac.WinApi.Hid;
 
-namespace WinApi.Error
+namespace BurnsBac.WinApi.Error
 {
     /// <summary>
     /// Exception if HID method does not return success.

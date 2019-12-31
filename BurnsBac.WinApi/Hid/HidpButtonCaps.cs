@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace WinApi.Hid
+namespace BurnsBac.WinApi.Hid
 {
     /// <summary>
     /// The <see cref="HidpButtonCaps"/> structure contains information about the capability of a

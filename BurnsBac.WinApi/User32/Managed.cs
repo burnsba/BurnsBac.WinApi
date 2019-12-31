@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
-using WinApi.Error;
-using WinApi.Hid;
+using BurnsBac.WinApi.Error;
+using BurnsBac.WinApi.Hid;
 
-namespace WinApi.User32
+namespace BurnsBac.WinApi.User32
 {
     /// <summary>
     /// Managed wrapper for user32 calls. Handles pointers, memory allocation, and return results.

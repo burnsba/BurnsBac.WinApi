@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinApi.Kernel32
+namespace BurnsBac.WinApi.Kernel32
 {
     /// <summary>
     /// The System.IO flags do not support file access for devices.

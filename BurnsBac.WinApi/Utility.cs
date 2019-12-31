@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
-using WinApi.Hid;
-using WinApi.Hid.Usage;
+using BurnsBac.WinApi.Hid;
+using BurnsBac.WinApi.Hid.Usage;
 
-namespace WinApi
+namespace BurnsBac.WinApi
 {
     /// <summary>
     /// Helper methods.

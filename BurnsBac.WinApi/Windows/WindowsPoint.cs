@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace WinApi.Windows
+namespace BurnsBac.WinApi.Windows
 {
     /// <summary>
     /// The POINT structure defines the x- and y-coordinates of a point.

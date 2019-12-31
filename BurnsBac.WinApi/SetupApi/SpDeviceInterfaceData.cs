@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace WinApi.SetupApi
+namespace BurnsBac.WinApi.SetupApi
 {
     /// <summary>
     /// An <see cref="SpDeviceInterfaceData"/> structure defines a device interface in a device information set.

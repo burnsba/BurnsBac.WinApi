@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinApi.Hid
+namespace BurnsBac.WinApi.Hid
 {
     /*
         https://github.com/tpn/winsdk-10/blob/master/Include/10.0.14393.0/shared/hidpi.h

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace WinApi.Error
+namespace BurnsBac.WinApi.Error
 {
     /// <summary>
     /// Exception wrapper for GetLastErrorMessage.

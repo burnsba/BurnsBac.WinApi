@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WinApi.Hid.Usage;
+using BurnsBac.WinApi.Hid.Usage;
 
-namespace WinApi.Hid
+namespace BurnsBac.WinApi.Hid
 {
     public static class Utility
     {

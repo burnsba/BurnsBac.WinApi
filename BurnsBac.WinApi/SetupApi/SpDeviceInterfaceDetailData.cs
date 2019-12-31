@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace WinApi.SetupApi
+namespace BurnsBac.WinApi.SetupApi
 {
     /// <summary>
     /// An SP_DEVICE_INTERFACE_DETAIL_DATA structure contains the path for a device interface.

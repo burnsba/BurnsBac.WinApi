@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinApi.Windows
+namespace BurnsBac.WinApi.Windows
 {
     /// <summary>
     /// Windows keycodes.

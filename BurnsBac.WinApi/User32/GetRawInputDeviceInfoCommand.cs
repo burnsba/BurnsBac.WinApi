@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WinApi.User32
+namespace BurnsBac.WinApi.User32
 {
     /// <summary>
     /// Command flag for <see cref="Api.GetRawInputDeviceInfo(IntPtr, GetRawInputDeviceInfoCommand, IntPtr, ref uint)"/>.
