@@ -10,9 +10,9 @@ namespace BurnsBac.WinApi.User32
     /// Enumeration containing the button data for raw mouse input.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse .
     /// </remarks>
-    [Flags()]
+    [Flags]
     public enum RawMouseButtons
         : ushort
     {
@@ -74,6 +74,6 @@ namespace BurnsBac.WinApi.User32
         /// <summary>
         /// Mouse wheel moved.
         /// </summary>
-        MouseWheel = 0x0400
+        MouseWheel = 0x0400,
     }
 }

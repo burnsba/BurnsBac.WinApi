@@ -11,11 +11,6 @@ namespace BurnsBac.WinApi.Error
     public class Win32ErrorCode : Exception
     {
         /// <summary>
-        /// Windows error code.
-        /// </summary>
-        public int ErrorCode { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Win32ErrorCode"/> class.
         /// </summary>
         public Win32ErrorCode()
@@ -26,7 +21,7 @@ namespace BurnsBac.WinApi.Error
         /// Initializes a new instance of the <see cref="Win32ErrorCode"/> class.
         /// </summary>
         /// <param name="message">Error message.</param>
-        public Win32ErrorCode(string message) 
+        public Win32ErrorCode(string message)
             : base(message)
         {
         }
@@ -36,7 +31,7 @@ namespace BurnsBac.WinApi.Error
         /// </summary>
         /// <param name="message">Error message.</param>
         /// <param name="innerException">Inner exception.</param>
-        public Win32ErrorCode(string message, Exception innerException) 
+        public Win32ErrorCode(string message, Exception innerException)
             : base(message, innerException)
         {
         }
@@ -46,9 +41,14 @@ namespace BurnsBac.WinApi.Error
         /// </summary>
         /// <param name="info">Serialization info.</param>
         /// <param name="context">Streaming context.</param>
-        protected Win32ErrorCode(SerializationInfo info, StreamingContext context) 
+        protected Win32ErrorCode(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+
+        /// <summary>
+        /// Gets or sets windows error code.
+        /// </summary>
+        public int ErrorCode { get; set; }
     }
 }

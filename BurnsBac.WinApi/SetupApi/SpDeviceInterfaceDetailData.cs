@@ -9,7 +9,7 @@ namespace BurnsBac.WinApi.SetupApi
     /// An SP_DEVICE_INTERFACE_DETAIL_DATA structure contains the path for a device interface.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_device_interface_detail_data_a
+    /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_device_interface_detail_data_a .
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
     public struct SpDeviceInterfaceDetailData

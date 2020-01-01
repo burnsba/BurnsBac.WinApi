@@ -9,6 +9,8 @@ namespace BurnsBac.WinApi.Kernel32
     /// <summary>
     /// Function definitions for kernel32.dll.
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1009:", Justification = "file style")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1111:", Justification = "file style")]
     public static class Api
     {
         /// <summary>
@@ -32,7 +34,7 @@ namespace BurnsBac.WinApi.Kernel32
         /// name of the stream.For more information, see File Streams.
         /// </param>
         /// <param name="dwDesiredAccess">
-        /// The requested access to the file or device, which can be summarized as read, write, 
+        /// The requested access to the file or device, which can be summarized as read, write,
         /// both or neither zero).
         /// The most commonly used values are GENERIC_READ, GENERIC_WRITE, or both
         /// (GENERIC_READ | GENERIC_WRITE). For more information, see Generic Access Rights,
@@ -99,7 +101,7 @@ namespace BurnsBac.WinApi.Kernel32
         /// If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended
         /// error information, call GetLastError.</returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea
+        /// https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea .
         /// </remarks>
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern Microsoft.Win32.SafeHandles.SafeFileHandle CreateFile(
@@ -133,7 +135,7 @@ namespace BurnsBac.WinApi.Kernel32
         /// name of the stream.For more information, see File Streams.
         /// </param>
         /// <param name="dwDesiredAccess">
-        /// The requested access to the file or device, which can be summarized as read, write, 
+        /// The requested access to the file or device, which can be summarized as read, write,
         /// both or neither zero).
         /// The most commonly used values are GENERIC_READ, GENERIC_WRITE, or both
         /// (GENERIC_READ | GENERIC_WRITE). For more information, see Generic Access Rights,
@@ -200,7 +202,7 @@ namespace BurnsBac.WinApi.Kernel32
         /// If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended
         /// error information, call GetLastError.</returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea
+        /// https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea .
         /// </remarks>
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern Microsoft.Win32.SafeHandles.SafeFileHandle CreateFile(

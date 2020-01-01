@@ -11,11 +11,6 @@ namespace BurnsBac.WinApi.Error
     public class BadResultException : Exception
     {
         /// <summary>
-        /// Result from call.
-        /// </summary>
-        public object CallResult { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="BadResultException"/> class.
         /// </summary>
         public BadResultException()
@@ -50,5 +45,10 @@ namespace BurnsBac.WinApi.Error
             : base(info, context)
         {
         }
+
+        /// <summary>
+        /// Gets or sets result from call.
+        /// </summary>
+        public object CallResult { get; set; }
     }
 }

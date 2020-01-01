@@ -12,7 +12,6 @@ namespace BurnsBac.WinApi.Hid
     /// </summary>
     public static class Managed
     {
-
         /// <summary>
         /// Calls hid.HidD_GetManufacturerString.
         /// </summary>

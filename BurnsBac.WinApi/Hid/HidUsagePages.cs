@@ -8,8 +8,10 @@ namespace BurnsBac.WinApi.Hid
     /// HID Usage pages.
     /// </summary>
     /// <remarks>
-    /// https://www.freebsddiary.org/APC/usb_hid_usages.php
+    /// https://www.freebsddiary.org/APC/usb_hid_usages.php .
     /// </remarks>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:Enumeration items should be documented", Justification = "WinApi")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "CS1591", Justification = "WinApi")]
     public enum HidUsagePages : ushort
     {
         GenericDesktop = 1,

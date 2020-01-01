@@ -9,6 +9,7 @@ namespace BurnsBac.WinApi.Hid
     /// Union struct for <see cref="HidpValueCaps"/>.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "WinApi")]
     public struct HidpValueValueCapsNotRange
     {
         /// <summary>
@@ -51,6 +52,14 @@ namespace BurnsBac.WinApi.Hid
         /// </summary>
         internal ushort Reserved4;
 
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static HidpValueValueCapsNotRange FromBytes(byte[] bytes, int offset, out int nextByteOffset)
         {
             var hvvcp = new HidpValueValueCapsNotRange()

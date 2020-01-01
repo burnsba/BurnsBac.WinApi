@@ -12,7 +12,7 @@ namespace BurnsBac.WinApi.User32
     /// One possible union for property <see cref="RawInput.Data"/>.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawhid
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawhid .
     /// </remarks>
     [StructLayout(LayoutKind.Explicit)]
     public struct RawHid
@@ -37,19 +37,27 @@ namespace BurnsBac.WinApi.User32
         [FieldOffset(8)]
         public byte[] bRawData;
 
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static RawHid FromBytes(byte[] bytes, int offset, out int nextByteOffset)
         {
             int dwSizeHid = (int)(((int)bytes[offset + 3] << 24) | ((int)bytes[offset + 2] << 16) | ((int)bytes[offset + 1] << 8) | (int)(bytes[offset]));
             int dwCount = (int)(((int)bytes[offset + 7] << 24) | ((int)bytes[offset + 6] << 16) | ((int)bytes[offset + 5] << 8) | (int)(bytes[offset + 4]));
             int len = dwSizeHid * dwCount;
             byte[] arrdata = new byte[len];
-            Array.Copy(bytes, offset+8, arrdata, 0, len);
+            Array.Copy(bytes, offset + 8, arrdata, 0, len);
 
             var hid = new RawHid()
             {
                 dwSizeHid = dwSizeHid,
                 dwCount = dwCount,
-                bRawData = arrdata
+                bRawData = arrdata,
             };
 
             nextByteOffset = offset + 7 + len + 1;

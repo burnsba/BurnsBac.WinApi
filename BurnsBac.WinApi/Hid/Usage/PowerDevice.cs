@@ -8,8 +8,11 @@ namespace BurnsBac.WinApi.Hid.Usage
     /// Usages for PowerDevice usage page (132).
     /// </summary>
     /// <remarks>
-    /// https://www.freebsddiary.org/APC/usb_hid_usages.php
+    /// https://www.freebsddiary.org/APC/usb_hid_usages.php .
     /// </remarks>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:Enumeration items should be documented", Justification = "WinApi")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "CS1591", Justification = "WinApi")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1300", Justification = "WinApi")]
     public enum PowerDevice
     {
         Undefined = 0x00,

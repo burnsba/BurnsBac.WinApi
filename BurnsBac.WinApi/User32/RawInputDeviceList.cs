@@ -9,7 +9,7 @@ namespace BurnsBac.WinApi.User32
     /// Contains information about a raw input device.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputdevicelist
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputdevicelist .
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
     public struct RawInputDeviceList

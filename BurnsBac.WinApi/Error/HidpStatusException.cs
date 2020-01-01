@@ -12,11 +12,6 @@ namespace BurnsBac.WinApi.Error
     public class HidpStatusException : Exception
     {
         /// <summary>
-        /// Status code that triggered exception.
-        /// </summary>
-        public HidpStatus StatusCode { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="HidpStatusException"/> class.
         /// </summary>
         public HidpStatusException()
@@ -51,5 +46,10 @@ namespace BurnsBac.WinApi.Error
             : base(info, context)
         {
         }
+
+        /// <summary>
+        /// Gets or sets status code that triggered exception.
+        /// </summary>
+        public HidpStatus StatusCode { get; set; }
     }
 }

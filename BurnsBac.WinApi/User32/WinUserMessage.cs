@@ -8,9 +8,10 @@ namespace BurnsBac.WinApi.User32
     /// Contains message information from a thread's message queue.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msg
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msg .
     /// </remarks>
     [Serializable]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:Field names should not contain underscore", Justification = "WinApi")]
     public struct WinUserMessage
     {
         /// <summary>
@@ -51,6 +52,8 @@ namespace BurnsBac.WinApi.User32
         /// <summary>
         /// undocumented.
         /// </summary>
+#pragma warning disable CS0649
         internal uint lprivate;
+#pragma warning restore CS0649
     }
 }

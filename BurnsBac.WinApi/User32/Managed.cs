@@ -18,7 +18,7 @@ namespace BurnsBac.WinApi.User32
         /// For remote desktop and any other device driver that's registered
         /// as such a device.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of raw input devices.</returns>
         public static RawInputDeviceList[] GetAllRawDevices()
         {
             uint deviceCount = 0;
@@ -30,7 +30,9 @@ namespace BurnsBac.WinApi.User32
 
             // If anything but zero is returned, the call failed, so return a null list
             if (0 != retValue)
+            {
                 return null;
+            }
 
             // Now allocate an array of the specified number of entries
             RawInputDeviceList[] deviceList = new RawInputDeviceList[deviceCount];
@@ -242,7 +244,7 @@ namespace BurnsBac.WinApi.User32
             {
                 if (pbuttoncapsAllocated)
                 {
-                    Marshal.FreeHGlobal(pbuttoncaps); 
+                    Marshal.FreeHGlobal(pbuttoncaps);
                 }
             }
         }

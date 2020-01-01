@@ -10,9 +10,10 @@ namespace BurnsBac.WinApi.Hid
     /// </summary>
     /// <remarks>
     /// https://www.pinvoke.net/default.aspx/hid/HIDP_CAPS.html
-    /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ns-hidpi-_hidp_caps
+    /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ns-hidpi-_hidp_caps .
     /// </remarks>
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "WinApi")]
     public struct HidpCaps
     {
         /// <summary>
@@ -111,9 +112,10 @@ namespace BurnsBac.WinApi.Hid
         [MarshalAs(UnmanagedType.U2)]
         public UInt16 NumberFeatureDataIndices;
 
+        /// <inheritdoc />
         public override string ToString()
         {
             return Utility.UsagePageAndUsageToString(UsagePage, Usage);
         }
-    };
+    }
 }

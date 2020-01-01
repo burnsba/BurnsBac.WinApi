@@ -11,9 +11,10 @@ namespace BurnsBac.WinApi.User32
     /// </summary>
     /// <remarks>
     /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msllhookstruct
-    /// http://www.pinvoke.net/default.aspx/Structures.MSLLHOOKSTRUCT
+    /// http://www.pinvoke.net/default.aspx/Structures.MSLLHOOKSTRUCT .
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:Fields should be private", Justification = "WinApi")]
     public class MouseLowLevelHookStruct
     {
         /// <summary>
@@ -34,7 +35,7 @@ namespace BurnsBac.WinApi.User32
         /// </para>
         /// </summary>
         /// <remarks>
-        /// this must be ints, not uints
+        /// this must be ints, not uints.
         /// </remarks>
         public int mouseData;
 

@@ -9,6 +9,8 @@ namespace BurnsBac.WinApi.User32
     /// <summary>
     /// Function definitions for user32.dll.
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1009:", Justification = "file style")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1111:", Justification = "file style")]
     public static class Api
     {
         /// <summary>
@@ -38,7 +40,7 @@ namespace BurnsBac.WinApi.User32
         /// individual hook procedures.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-callnexthookex
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-callnexthookex .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern IntPtr CallNextHookEx(
@@ -57,7 +59,7 @@ namespace BurnsBac.WinApi.User32
         /// Although its meaning depends on the message being dispatched, the return value
         /// generally is ignored.</returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-dispatchmessage
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-dispatchmessage .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern IntPtr DispatchMessage(
@@ -113,7 +115,7 @@ namespace BurnsBac.WinApi.User32
         /// To get extended error information, call GetLastError.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmessage
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmessage .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern int GetMessage(
@@ -136,7 +138,7 @@ namespace BurnsBac.WinApi.User32
         /// If an error occurs, the return value is (UINT)-1. Call GetLastError for the error code.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputbuffer
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputbuffer .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern uint GetRawInputBuffer(
@@ -158,7 +160,7 @@ namespace BurnsBac.WinApi.User32
         /// NULL and the function is successful, the return value is the number of bytes copied into pData.
         /// If there is an error, the return value is (UINT)-1.</returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdata
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdata .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern int GetRawInputData(
@@ -191,7 +193,7 @@ namespace BurnsBac.WinApi.User32
         /// Call GetLastError to identify any other errors.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern uint GetRawInputDeviceInfo(
@@ -223,7 +225,7 @@ namespace BurnsBac.WinApi.User32
         /// Call GetLastError to identify any other errors.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern int GetRawInputDeviceInfo(
@@ -236,14 +238,14 @@ namespace BurnsBac.WinApi.User32
         /// <summary>
         /// Enumerates the raw input devices attached to the system.
         /// </summary>
-        /// <param name="RawInputDeviceList">
+        /// <param name="rawInputDeviceList">
         /// An array of RAWINPUTDEVICELIST structures for the devices attached to the system.
         /// If NULL, the number of devices are returned in *puiNumDevices.
         /// </param>
-        /// <param name="NumDevices">
+        /// <param name="numDevices">
         /// If pRawInputDeviceList is NULL, the function populates this variable with the number
         /// of devices attached to the system; otherwise, this variable specifies the number of
-        /// RAWINPUTDEVICELIST structures that can be contained in the buffer to which 
+        /// RAWINPUTDEVICELIST structures that can be contained in the buffer to which
         /// pRawInputDeviceList points. If this value is less than the number of devices attached
         /// to the system, the function returns the actual number of devices in this variable and
         /// fails with ERROR_INSUFFICIENT_BUFFER.
@@ -256,13 +258,12 @@ namespace BurnsBac.WinApi.User32
         /// error indication.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdevicelist
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdevicelist .
         /// </remarks>
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern uint GetRawInputDeviceList
-        (
-            [In, Out] RawInputDeviceList[] RawInputDeviceList,
-            ref uint NumDevices,
+        public static extern uint GetRawInputDeviceList(
+            [In, Out] RawInputDeviceList[] rawInputDeviceList,
+            ref uint numDevices,
             uint cbSize /* = (uint)Marshal.SizeOf(typeof(RawInputDeviceList)) */
         );
 
@@ -295,7 +296,7 @@ namespace BurnsBac.WinApi.User32
         /// <para>This function cannot retrieve the text of an edit control in another application.
         /// </para></returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getwindowtextw
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getwindowtextw .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern int GetWindowText(
@@ -322,7 +323,7 @@ namespace BurnsBac.WinApi.User32
         /// If the function fails, the return value is zero.To get extended error information, call GetLastError.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-killtimer
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-killtimer .
         /// </remarks>
         [DllImport("user32.dll", ExactSpelling = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -339,7 +340,7 @@ namespace BurnsBac.WinApi.User32
         /// <param name="cbSize">The size, in bytes, of a RAWINPUTDEVICE structure.</param>
         /// <returns>TRUE if the function succeeds; otherwise, FALSE. If the function fails, call GetLastError for more information.</returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerrawinputdevices
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerrawinputdevices .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern bool RegisterRawInputDevices(
@@ -394,7 +395,7 @@ namespace BurnsBac.WinApi.User32
         /// return value is zero. To get extended error information, call GetLastError.
         /// </para></returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-settimer
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-settimer .
         /// </remarks>
         [DllImport("user32.dll", ExactSpelling = true)]
         public static extern IntPtr SetTimer(
@@ -434,7 +435,7 @@ namespace BurnsBac.WinApi.User32
         /// information, call GetLastError.
         /// </para></returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowshookexa
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowshookexa .
         /// </remarks>
         [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr SetWindowsHookEx(SetWindowsHookExType hookType, Delegate lpfn, IntPtr hMod, uint dwThreadId);
@@ -456,7 +457,7 @@ namespace BurnsBac.WinApi.User32
         /// thread's message queue), the return value is zero.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-translatemessage
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-translatemessage .
         /// </remarks>
         [DllImport("user32.dll")]
         public static extern bool TranslateMessage(
@@ -478,7 +479,7 @@ namespace BurnsBac.WinApi.User32
         /// error information, call GetLastError.
         /// </para></returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-unhookwindowshookex
+        /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-unhookwindowshookex .
         /// </remarks>
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool UnhookWindowsHookEx(

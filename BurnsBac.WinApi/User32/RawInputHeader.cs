@@ -11,7 +11,7 @@ namespace BurnsBac.WinApi.User32
     /// Contains the header information that is part of the raw input data.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputheader
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputheader .
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
     public struct RawInputHeader
@@ -42,11 +42,14 @@ namespace BurnsBac.WinApi.User32
         /// </summary>
         public IntPtr wParam;
 
-        public override string ToString()
-        {
-            return string.Format("RawInputHeader\n dwType : {0}\n dwSize : {1}\n hDevice : {2}\n wParam : {3}", dwType, dwSize, hDevice, wParam);
-        }
-
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static RawInputHeader FromBytes(byte[] bytes, int offset, out int nextByteOffset)
         {
             var ptrsize = IntPtr.Size;
@@ -62,6 +65,12 @@ namespace BurnsBac.WinApi.User32
             nextByteOffset = offset + 7 + IntPtr.Size + IntPtr.Size + 1;
 
             return rih;
+        }
+
+        /// <inheritdoc />
+        public override string ToString()
+        {
+            return string.Format("RawInputHeader\n dwType : {0}\n dwSize : {1}\n hDevice : {2}\n wParam : {3}", dwType, dwSize, hDevice, wParam);
         }
     }
 }

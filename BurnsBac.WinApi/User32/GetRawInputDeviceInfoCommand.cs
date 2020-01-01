@@ -8,24 +8,27 @@ namespace BurnsBac.WinApi.User32
     /// Command flag for <see cref="Api.GetRawInputDeviceInfo(IntPtr, GetRawInputDeviceInfoCommand, IntPtr, ref uint)"/>.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa .
     /// </remarks>
     public enum GetRawInputDeviceInfoCommand
     {
         /// <summary>
+        /// <para>
         /// pData points to a string that contains the device name.
-        /// 
+        /// </para>
+        /// <para>
         /// For this uiCommand only, the value in pcbSize is the character count (not the byte count).
+        /// </para>
         /// </summary>
         RIDI_DEVICENAME = 0x20000007,
 
         /// <summary>
-        /// pData points to an <see cref="User32.RidDeviceInfo"/> structure. 
+        /// pData points to an <see cref="User32.RidDeviceInfo"/> structure.
         /// </summary>
         RIDI_DEVICEINFO = 0x2000000b,
 
         /// <summary>
-        /// pData points to the previously parsed data. 
+        /// pData points to the previously parsed data.
         /// </summary>
         RIDI_PREPARSEDDATA = 0x20000005,
     }

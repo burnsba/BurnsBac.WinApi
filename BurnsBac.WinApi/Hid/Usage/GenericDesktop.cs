@@ -8,8 +8,10 @@ namespace BurnsBac.WinApi.Hid.Usage
     /// Usages for Generic Desktop usage page (1).
     /// </summary>
     /// <remarks>
-    /// https://www.freebsddiary.org/APC/usb_hid_usages.php
+    /// https://www.freebsddiary.org/APC/usb_hid_usages.php .
     /// </remarks>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:Enumeration items should be documented", Justification = "WinApi")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "CS1591", Justification = "WinApi")]
     public enum GenericDesktop
     {
         Undefined = 0x00,
@@ -59,6 +61,5 @@ namespace BurnsBac.WinApi.Hid.Usage
         DpadDown = 0x91,
         DpadRight = 0x92,
         DpadLeft = 0x93,
-
     }
 }

@@ -11,7 +11,7 @@ namespace BurnsBac.WinApi.SetupApi
     /// about combining these flags, see the following Remarks section.
     /// </summary>
     /// <remarks>
-    /// https://www.pinvoke.net/default.aspx/setupapi.setupdigetclassdevs
+    /// https://www.pinvoke.net/default.aspx/setupapi.setupdigetclassdevs .
     /// </remarks>
     [Flags]
     public enum DiGetClassFlags : uint

@@ -10,7 +10,7 @@ namespace BurnsBac.WinApi.User32
     /// </summary>
     /// <remarks>
     /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rid_device_info_mouse
-    /// https://www.pinvoke.net/default.aspx/user32/GetRawInputDeviceInfo%20.html
+    /// https://www.pinvoke.net/default.aspx/user32/GetRawInputDeviceInfo%20.html .
     /// </remarks>
     public struct RidDeviceInfoMouse
     {

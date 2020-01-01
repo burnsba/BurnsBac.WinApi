@@ -13,8 +13,9 @@ namespace BurnsBac.WinApi.User32
     /// </summary>
     /// <remarks>
     /// http://www.pinvoke.net/default.aspx/Structures/RAWINPUTMOUSE.html
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse .
     /// </remarks>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1201:Elements should appear in the correct order", Justification = "explicit layout")]
     public struct RawMouse
     {
         /// <summary>
@@ -22,8 +23,14 @@ namespace BurnsBac.WinApi.User32
         /// </summary>
         public RawMouseFlags Flags;
 
+        /// <summary>
+        /// Data union.
+        /// </summary>
         public struct Data
         {
+            /// <summary>
+            /// Buttons.
+            /// </summary>
             public uint Buttons;
 
             /// <summary>
@@ -36,6 +43,14 @@ namespace BurnsBac.WinApi.User32
             /// </summary>
             public RawMouseButtons ButtonFlags;
 
+            /// <summary>
+            /// Creates object from raw bytes.
+            /// </summary>
+            /// <param name="bytes">Byte array to read from.</param>
+            /// <param name="offset">Offset to start reading from.</param>
+            /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            /// <returns>New object.</returns>
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
             public static Data FromBytes(byte[] bytes, int offset, out int nextByteOffset)
             {
                 var d = new Data()
@@ -79,6 +94,14 @@ namespace BurnsBac.WinApi.User32
         /// </summary>
         public uint ExtraInformation;
 
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static RawMouse FromBytes(byte[] bytes, int offset, out int nextByteOffset)
         {
             // Something is wrong, the online documentation says the first field is two bytes.
@@ -87,11 +110,12 @@ namespace BurnsBac.WinApi.User32
             //
             // https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse
             // https://github.com/tpn/winsdk-10/blob/master/Include/10.0.10240.0/um/WinUser.h
+            ////////
 
             int dataOffset;
 
             // should be "offset + 2", but that doesn't work?
-            var data = Data.FromBytes(bytes, offset + 4, out dataOffset); 
+            var data = Data.FromBytes(bytes, offset + 4, out dataOffset);
 
             var rm = new RawMouse()
             {

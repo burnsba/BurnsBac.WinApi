@@ -9,7 +9,7 @@ namespace BurnsBac.WinApi.User32
     /// Defines information for the raw input devices.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputdevice
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputdevice .
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
     public struct RawInputDevice
@@ -36,6 +36,7 @@ namespace BurnsBac.WinApi.User32
         /// </summary>
         public IntPtr WindowHandle;
 
+        /// <inheritdoc />
         public override string ToString()
         {
             return $"{Utility.UsagePageAndUsageToString((int)UsagePage, Usage)}, flags: {Flags}, target: {WindowHandle}";

@@ -12,9 +12,10 @@ namespace BurnsBac.WinApi.User32
     /// One possible union for property <see cref="RawInput.Data"/>.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawkeyboard
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawkeyboard .
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "WinApi")]
     public struct RawKeyboard
     {
         /// <summary>
@@ -24,7 +25,7 @@ namespace BurnsBac.WinApi.User32
         public ushort Makecode;
 
         /// <summary>
-        /// One or more of RI_KEY_MAKE, RI_KEY_BREAK, RI_KEY_E0, RI_KEY_E1
+        /// One or more of RI_KEY_MAKE, RI_KEY_BREAK, RI_KEY_E0, RI_KEY_E1.
         /// </summary>
         public ushort Flags;
 
@@ -48,12 +49,14 @@ namespace BurnsBac.WinApi.User32
         /// </summary>
         public uint ExtraInformation;
 
-        public override string ToString()
-        {
-            return string.Format("Rawkeyboard\n Makecode: {0}\n Makecode(hex) : {0:X}\n Flags: {1}\n Reserved: {2}\n VKeyName: {3}\n Message: {4}\n ExtraInformation {5}\n",
-                                                Makecode, Flags, Reserved, VKey, Message, ExtraInformation);
-        }
-
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static RawKeyboard FromBytes(byte[] bytes, int offset, out int nextByteOffset)
         {
             var rk = new RawKeyboard()
@@ -69,6 +72,12 @@ namespace BurnsBac.WinApi.User32
             nextByteOffset = offset + 15 + 1;
 
             return rk;
+        }
+
+        /// <inheritdoc />
+        public override string ToString()
+        {
+            return string.Format("Rawkeyboard\n Makecode: {0}\n Makecode(hex) : {0:X}\n Flags: {1}\n Reserved: {2}\n VKeyName: {3}\n Message: {4}\n ExtraInformation {5}\n", Makecode, Flags, Reserved, VKey, Message, ExtraInformation);
         }
     }
 }

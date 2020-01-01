@@ -64,6 +64,14 @@ namespace BurnsBac.WinApi.Hid
         /// </summary>
         public ushort DataIndexMax;
 
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static HidpValueValueCapsRange FromBytes(byte[] bytes, int offset, out int nextByteOffset)
         {
             var hvvcp = new HidpValueValueCapsRange()

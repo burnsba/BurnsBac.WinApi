@@ -11,7 +11,7 @@ namespace BurnsBac.WinApi.Hid
     /// </summary>
     /// <remarks>
     /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ns-hidpi-_hidp_button_caps
-    /// https://github.com/tpn/winsdk-10/blob/master/Include/10.0.14393.0/shared/hidpi.h
+    /// https://github.com/tpn/winsdk-10/blob/master/Include/10.0.14393.0/shared/hidpi.h .
     /// </remarks>
     [StructLayout(LayoutKind.Explicit)]
     public struct HidpButtonCaps
@@ -115,27 +115,34 @@ namespace BurnsBac.WinApi.Hid
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
         internal uint[] Reserved;
 
+        /// <summary>
+        /// Button capability information for range.
+        /// </summary>
         [FieldOffset(56)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "layout explicit")]
         public HidpButtonCapsRange Range;
 
+        /// <summary>
+        /// Button capability information for non-range.
+        /// </summary>
         [FieldOffset(56)]
         public HidpButtonCapsNotRange NotRange;
 
-        public override string ToString()
-        {
-            if (IsRange)
-                return Utility.UsagePageToString(UsagePage);
-
-            return Utility.UsagePageAndUsageToString(UsagePage, NotRange.Usage);
-        }
-
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static HidpButtonCaps FromBytes(byte[] bytes, int offset, out int nextByteOffset)
         {
             int nextOffset;
 
             var hbc = new HidpButtonCaps()
             {
-                UsagePage = (ushort)(((ushort)bytes[offset+1] << 8) | (ushort)(bytes[offset])),
+                UsagePage = (ushort)(((ushort)bytes[offset + 1] << 8) | (ushort)(bytes[offset])),
                 ReportID = bytes[offset + 2],
                 IsAlias = bytes[offset + 3] > 0 ? true : false,
                 BitField = (ushort)(((ushort)bytes[offset + 5] << 8) | (ushort)(bytes[offset + 4])),
@@ -145,13 +152,24 @@ namespace BurnsBac.WinApi.Hid
                 IsStringRange = bytes[offset + 11] > 0 ? true : false,
                 IsDesignatorRange = bytes[offset + 12] > 0 ? true : false,
                 IsAbsolute = bytes[offset + 13] > 0 ? true : false,
-                // skip reserved
-                Range = HidpButtonCapsRange.FromBytes(bytes, offset + 56, out nextOffset)
+                ///// skip reserved
+                Range = HidpButtonCapsRange.FromBytes(bytes, offset + 56, out nextOffset),
             };
 
             nextByteOffset = nextOffset;
 
             return hbc;
+        }
+
+        /// <inheritdoc />
+        public override string ToString()
+        {
+            if (IsRange)
+            {
+                return Utility.UsagePageToString(UsagePage);
+            }
+
+            return Utility.UsagePageAndUsageToString(UsagePage, NotRange.Usage);
         }
     }
 }

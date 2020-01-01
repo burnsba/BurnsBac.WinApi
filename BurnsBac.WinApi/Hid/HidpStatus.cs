@@ -41,6 +41,12 @@ namespace BurnsBac.WinApi.Hid
             return "0x" + ((UInt64)(((SEV) << 28) | ((UInt64)0x11 << 16) | (CODE))).ToString("X"); }
         }
      * */
+     /// <summary>
+     /// Derived from error codes in WIN SDK 10.
+     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:Enumeration items should be documented", Justification = "WinApi")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "CS1591", Justification = "WinApi")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1514", Justification = "WinApi")]
     public enum HidpStatus : long
     {
         /// <summary>

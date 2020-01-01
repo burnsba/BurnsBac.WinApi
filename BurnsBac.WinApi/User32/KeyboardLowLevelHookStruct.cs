@@ -10,9 +10,10 @@ namespace BurnsBac.WinApi.User32
     /// </summary>
     /// <remarks>
     /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct
-    /// http://www.pinvoke.net/default.aspx/Structures/KBDLLHOOKSTRUCT.html
+    /// http://www.pinvoke.net/default.aspx/Structures/KBDLLHOOKSTRUCT.html .
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:Fields should be private", Justification = "WinApi")]
     public class KeyboardLowLevelHookStruct
     {
         /// <summary>

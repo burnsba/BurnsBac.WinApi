@@ -10,9 +10,9 @@ namespace BurnsBac.WinApi.User32
     /// Enumeration containing flags for a <see cref="RawInputDevice"/>.
     /// </summary>
     /// <remarks>
-    /// http://pinvoke.net/default.aspx/Enums/RawInputDeviceFlags.html
+    /// http://pinvoke.net/default.aspx/Enums/RawInputDeviceFlags.html .
     /// </remarks>
-    [Flags()]
+    [Flags]
     public enum RawInputDeviceFlags
     {
         /// <summary>
@@ -70,6 +70,6 @@ namespace BurnsBac.WinApi.User32
         /// If set, application keys are handled.  NoLegacy must be
         /// specified.  Keyboard only.
         /// </summary>
-        AppKeys = 0x00000400
+        AppKeys = 0x00000400,
     }
 }

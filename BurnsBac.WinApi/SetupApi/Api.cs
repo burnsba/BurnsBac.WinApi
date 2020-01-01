@@ -8,6 +8,8 @@ namespace BurnsBac.WinApi.SetupApi
     /// <summary>
     /// Function definitions for setupapi.dll.
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1009:", Justification = "file style")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1111:", Justification = "file style")]
     public static class Api
     {
         /// <summary>
@@ -16,11 +18,11 @@ namespace BurnsBac.WinApi.SetupApi
         /// <param name="dnDevInst">
         /// Caller-supplied device instance handle that is bound to the local machine.
         /// </param>
-        /// <param name="Buffer">
+        /// <param name="buffer">
         /// Address of a buffer to receive a device instance ID string. The required buffer size can be obtained by
         /// calling CM_Get_Device_ID_Size, then incrementing the received value to allow room for the string's
         /// terminating NULL.</param>
-        /// <param name="BufferLen">
+        /// <param name="bufferLen">
         /// Caller-supplied length, in characters, of the buffer specified by Buffer.
         /// </param>
         /// <param name="ulFlags">
@@ -30,16 +32,15 @@ namespace BurnsBac.WinApi.SetupApi
         /// If the operation succeeds, the function returns CR_SUCCESS. Otherwise, it returns one
         /// of the CR_-prefixed error codes defined in Cfgmgr32.h.</returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/cfgmgr32/nf-cfgmgr32-cm_get_device_idw
+        /// https://docs.microsoft.com/en-us/windows/win32/api/cfgmgr32/nf-cfgmgr32-cm_get_device_idw .
         /// </remarks>
         [DllImport("setupapi.dll", SetLastError = true)]
         public static extern int CM_Get_Device_IDW(
             IntPtr dnDevInst,
-            IntPtr Buffer,
-            uint BufferLen,
+            IntPtr buffer,
+            uint bufferLen,
             uint ulFlags
         );
-
 
         /// <summary>
         /// The CM_Get_Parent function obtains a device instance handle to the parent node of
@@ -60,7 +61,7 @@ namespace BurnsBac.WinApi.SetupApi
         /// one of the CR_-prefixed error codes defined in Cfgmgr32.h.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/cfgmgr32/nf-cfgmgr32-cm_get_parent
+        /// https://docs.microsoft.com/en-us/windows/win32/api/cfgmgr32/nf-cfgmgr32-cm_get_parent .
         /// </remarks>
         [DllImport("setupapi.dll")]
         public static extern int CM_Get_Parent(
@@ -76,7 +77,7 @@ namespace BurnsBac.WinApi.SetupApi
         /// <returns>The function returns TRUE if it is successful. Otherwise, it returns FALSE and the
         /// logged error can be retrieved with a call to GetLastError.</returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdidestroydeviceinfolist
+        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdidestroydeviceinfolist .
         /// </remarks>
         [DllImport("setupapi.dll", CharSet = CharSet.Auto)]
         public static extern bool SetupDiDestroyDeviceInfoList(
@@ -123,7 +124,7 @@ namespace BurnsBac.WinApi.SetupApi
         /// failure can be retrieved by calling GetLastError.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdienumdeviceinterfaces
+        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdienumdeviceinterfaces .
         /// </remarks>
         [DllImport(@"setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern Boolean SetupDiEnumDeviceInterfaces(
@@ -174,7 +175,7 @@ namespace BurnsBac.WinApi.SetupApi
         /// failure can be retrieved by calling GetLastError.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdienumdeviceinterfaces
+        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdienumdeviceinterfaces .
         /// </remarks>
         [DllImport(@"setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern Boolean SetupDiEnumDeviceInterfaces(
@@ -209,7 +210,7 @@ namespace BurnsBac.WinApi.SetupApi
         /// </term>
         /// </list>
         /// This pointer is optional and can be NULL.If an enumeration value is not used to select
-        /// devices, set Enumerator to NULL</param>
+        /// devices, set Enumerator to NULL.</param>
         /// <param name="hwndParent">
         /// A handle to the top-level window to be used for a user interface that is associated with
         /// installing a device instance in the device information set. This handle is optional and
@@ -227,7 +228,7 @@ namespace BurnsBac.WinApi.SetupApi
         /// GetLastError.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdigetclassdevsw
+        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdigetclassdevsw .
         /// </remarks>
         [DllImport("setupapi.dll", CharSet = CharSet.Auto)]
         public static extern IntPtr SetupDiGetClassDevsW(
@@ -258,7 +259,7 @@ namespace BurnsBac.WinApi.SetupApi
         /// data structure, not a size reflecting the variable-length string at the end.
         /// </param>
         /// <param name="deviceInterfaceDetailDataSize">
-        /// The size of the DeviceInterfaceDetailData buffer. The buffer must be at least 
+        /// The size of the DeviceInterfaceDetailData buffer. The buffer must be at least
         /// (offsetof(<see cref="SpDeviceInterfaceDetailData" />, DevicePath) + sizeof(TCHAR)) bytes, to contain
         /// the fixed part of the structure and a single NULL to terminate an empty MULTI_SZ string.
         /// This parameter must be zero if <paramref name="deviceInterfaceDetailData"/> is NULL.
@@ -280,7 +281,7 @@ namespace BurnsBac.WinApi.SetupApi
         /// can be retrieved by calling GetLastError.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdigetdeviceinterfacedetaila
+        /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdigetdeviceinterfacedetaila .
         /// </remarks>
         [DllImport(@"setupapi.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern Boolean SetupDiGetDeviceInterfaceDetailA(

@@ -9,11 +9,6 @@
             Thrown when a method call does not return success.
             </summary>
         </member>
-        <member name="P:BurnsBac.WinApi.Error.BadResultException.CallResult">
-            <summary>
-            Result from call.
-            </summary>
-        </member>
         <member name="M:BurnsBac.WinApi.Error.BadResultException.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:BurnsBac.WinApi.Error.BadResultException"/> class.
@@ -39,14 +34,14 @@
             <param name="info">Serialization info.</param>
             <param name="context">Streaming context.</param>
         </member>
+        <member name="P:BurnsBac.WinApi.Error.BadResultException.CallResult">
+            <summary>
+            Gets or sets result from call.
+            </summary>
+        </member>
         <member name="T:BurnsBac.WinApi.Error.HidpStatusException">
             <summary>
             Exception if HID method does not return success.
-            </summary>
-        </member>
-        <member name="P:BurnsBac.WinApi.Error.HidpStatusException.StatusCode">
-            <summary>
-            Status code that triggered exception.
             </summary>
         </member>
         <member name="M:BurnsBac.WinApi.Error.HidpStatusException.#ctor">
@@ -74,14 +69,14 @@
             <param name="info">Serialization info.</param>
             <param name="context">Streaming context.</param>
         </member>
+        <member name="P:BurnsBac.WinApi.Error.HidpStatusException.StatusCode">
+            <summary>
+            Gets or sets status code that triggered exception.
+            </summary>
+        </member>
         <member name="T:BurnsBac.WinApi.Error.Win32ErrorCode">
             <summary>
             Exception wrapper for GetLastErrorMessage.
-            </summary>
-        </member>
-        <member name="P:BurnsBac.WinApi.Error.Win32ErrorCode.ErrorCode">
-            <summary>
-            Windows error code.
             </summary>
         </member>
         <member name="M:BurnsBac.WinApi.Error.Win32ErrorCode.#ctor">
@@ -109,6 +104,11 @@
             <param name="info">Serialization info.</param>
             <param name="context">Streaming context.</param>
         </member>
+        <member name="P:BurnsBac.WinApi.Error.Win32ErrorCode.ErrorCode">
+            <summary>
+            Gets or sets windows error code.
+            </summary>
+        </member>
         <member name="T:BurnsBac.WinApi.Hid.Api">
             <summary>
             Function definitions for hid.dll.
@@ -122,7 +122,7 @@
             </summary>
             <param name="reportType">One of HidP_Input, HidP_Output, or HidP_Feature.</param>
             <param name="buttonCaps">
-            A _HIDP_BUTTON_CAPS array containing information about all the 
+            A _HIDP_BUTTON_CAPS array containing information about all the
             binary values in the given report.This buffer is provided by
             the caller.
             </param>
@@ -139,24 +139,24 @@
             <param name="preparsedData">The preparsed data returned from HIDCLASS.</param>
             <returns>HIDP_STATUS_SUCCESS, HIDP_STATUS_INVALID_PREPARSED_DATA.</returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getbuttoncaps
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getbuttoncaps .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Api.HidP_GetCaps(System.IntPtr,BurnsBac.WinApi.Hid.HidpCaps@)">
             <summary>
             The HidP_GetCaps routine returns a top-level collection's HIDP_CAPS structure.
             </summary>
-            <param name="PreparsedData">
+            <param name="preparsedData">
             Pointer to a top-level collection's preparsed data.
             </param>
-            <param name="Capabilities">
+            <param name="capabilities">
             Pointer to a caller-allocated buffer that the routine uses to return a collection's HIDP_CAPS structure.
             </param>
             <returns>
             HIDP_STATUS_SUCCESS, HIDP_STATUS_INVALID_PREPARSED_DATA.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getcaps
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getcaps .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Api.HidD_GetHidGuid(System.Guid@)">
@@ -166,7 +166,7 @@
             <param name="hidGuid">Pointer to a caller-allocated GUID buffer that the routine
             uses to return the device interface GUID for HIDClass devices.</param>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_gethidguid
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_gethidguid .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Api.HidD_GetInputReport(System.Runtime.InteropServices.SafeHandle,System.Byte[],System.UInt32)">
@@ -188,7 +188,7 @@
             Use GetLastError to get extended error information.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getinputreport
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getinputreport .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Api.HidP_MaxUsageListLength(BurnsBac.WinApi.Hid.HidpReportType,System.UInt16,System.IntPtr)">
@@ -205,7 +205,7 @@
             returned for a given ReportType. If non-zero, will return
             the maximum number of usages that would be returned for the
             ReportType with the given UsagePage.</param>
-            <param name="preparsedData">Preparsed data returned from HIDCLASS</param>
+            <param name="preparsedData">Preparsed data returned from HIDCLASS.</param>
             <returns>
             The length of the usage list array required for the HidP_GetUsages or
             HidP_GetUsagesEx function call.If an error occurs(such as
@@ -213,7 +213,7 @@
             returns 0.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_maxusagelistlength
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_maxusagelistlength .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Api.HidD_GetManufacturerString(System.Runtime.InteropServices.SafeHandle,System.IntPtr,System.UInt32)">
@@ -240,7 +240,7 @@
             error information.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getmanufacturerstring
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getmanufacturerstring .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Api.HidD_GetPhysicalDescriptor(System.Runtime.InteropServices.SafeHandle,System.IntPtr,System.UInt32)">
@@ -263,7 +263,7 @@
             Use GetLastError to get extended error information.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getphysicaldescriptor
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getphysicaldescriptor .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Api.HidD_GetProductString(System.Runtime.InteropServices.SafeHandle,System.IntPtr,System.UInt32)">
@@ -346,9 +346,9 @@
             determine the maximum length needed to return all the usages
             that a given report packet may contain.
             </param>
-            <param name="preparsedData">Preparsed data structure returned by HIDCLASS</param>
+            <param name="preparsedData">Preparsed data structure returned by HIDCLASS.</param>
             <param name="report">The report packet.</param>
-            <param name="reportLength">Length (in bytes) of the given report packet</param>
+            <param name="reportLength">Length (in bytes) of the given report packet.</param>
             <returns>
             HIDP_STATUS_SUCCESS,
             HIDP_INVALID_REPORT_LENGTH,
@@ -359,7 +359,7 @@
             HIDP_STATUS_USAGE_NOT_FOUND.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getusages
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getusages .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Api.HidP_GetUsageValue(BurnsBac.WinApi.Hid.HidpReportType,System.UInt16,System.UInt16,System.UInt16,System.UInt32@,System.IntPtr,System.Byte[],System.UInt32)">
@@ -379,21 +379,21 @@
             is zero, this function will set the first field
             it finds that matches the usage page and
             usage.</param>
-            <param name="usage">The usage whose value HidP_GetUsageValue will retrieve</param>
+            <param name="usage">The usage whose value HidP_GetUsageValue will retrieve.</param>
             <param name="usageValue">The raw value that is set for the specified field in the report
             buffer.This value will either fall within the logical range
             or if NULL values are allowed, a number outside the range to
-            indicate a NULL</param>
-            <param name="preparsedData">The preparsed data returned for HIDCLASS</param>
+            indicate a NULL.</param>
+            <param name="preparsedData">The preparsed data returned for HIDCLASS.</param>
             <param name="report">The report packet.</param>
             <param name="reportLength">Length (in bytes) of the given report packet.</param>
             <returns>
             HIDP_STATUS_SUCCESS, HIDP_INVALID_REPORT_LENGTH,
-            HIDP_INVALID_REPORT_TYPE, HIDP_STATUS_INCOMPATIBLE_REPORT_ID, 
+            HIDP_INVALID_REPORT_TYPE, HIDP_STATUS_INCOMPATIBLE_REPORT_ID,
             HIDP_STATUS_INVALID_PREPARSED_DATA, HIDP_STATUS_USAGE_NOT_FOUND.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getusagevalue
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getusagevalue .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Api.HidP_GetValueCaps(BurnsBac.WinApi.Hid.HidpReportType,System.IntPtr,System.UInt32@,System.IntPtr)">
@@ -413,9 +413,9 @@
             the routine sets ValueCapsLength to the number of elements that the it actually returns.
             </param>
             <param name="preparsedData">Pointer to a top-level collection's preparsed data.</param>
-            <returns>HIDP_STATUS_SUCCESS, HIDP_STATUS_INVALID_PREPARSED_DATA</returns>
+            <returns>HIDP_STATUS_SUCCESS, HIDP_STATUS_INVALID_PREPARSED_DATA.</returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getvaluecaps
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getvaluecaps .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.HidpButtonCaps">
@@ -425,7 +425,7 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ns-hidpi-_hidp_button_caps
-            https://github.com/tpn/winsdk-10/blob/master/Include/10.0.14393.0/shared/hidpi.h
+            https://github.com/tpn/winsdk-10/blob/master/Include/10.0.14393.0/shared/hidpi.h .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.Hid.HidpButtonCaps.UsagePage">
@@ -503,6 +503,28 @@
             Reserved for internal system use.
             </summary>
         </member>
+        <member name="F:BurnsBac.WinApi.Hid.HidpButtonCaps.Range">
+            <summary>
+            Button capability information for range.
+            </summary>
+        </member>
+        <member name="F:BurnsBac.WinApi.Hid.HidpButtonCaps.NotRange">
+            <summary>
+            Button capability information for non-range.
+            </summary>
+        </member>
+        <member name="M:BurnsBac.WinApi.Hid.HidpButtonCaps.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
+        </member>
+        <member name="M:BurnsBac.WinApi.Hid.HidpButtonCaps.ToString">
+            <inheritdoc />
+        </member>
         <member name="T:BurnsBac.WinApi.Hid.HidpButtonCapsNotRange">
             <summary>
             Union struct for <see cref="T:BurnsBac.WinApi.Hid.HidpButtonCaps"/>.
@@ -547,6 +569,14 @@
             <summary>
             Reserved for internal system use.
             </summary>
+        </member>
+        <member name="M:BurnsBac.WinApi.Hid.HidpButtonCapsNotRange.FromByteArray(System.Byte[],System.Int32)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <returns>New object.</returns>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.HidpButtonCapsRange">
             <summary>
@@ -602,13 +632,22 @@
             Range.UsageMin to Range.UsageMax.
             </summary>
         </member>
+        <member name="M:BurnsBac.WinApi.Hid.HidpButtonCapsRange.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
+        </member>
         <member name="T:BurnsBac.WinApi.Hid.HidpCaps">
             <summary>
             The HIDP_CAPS structure contains information about a top-level collection's capability.
             </summary>
             <remarks>
             https://www.pinvoke.net/default.aspx/hid/HIDP_CAPS.html
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ns-hidpi-_hidp_caps
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ns-hidpi-_hidp_caps .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.Hid.HidpCaps.Usage">
@@ -691,12 +730,15 @@
             Specifies the number of data indices assigned to buttons and values in all feature reports.
             </summary>
         </member>
+        <member name="M:BurnsBac.WinApi.Hid.HidpCaps.ToString">
+            <inheritdoc />
+        </member>
         <member name="T:BurnsBac.WinApi.Hid.HidpReportType">
             <summary>
             The HIDP_REPORT_TYPE enumeration type is used to specify a HID report type.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ne-hidpi-_hidp_report_type
+            https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ne-hidpi-_hidp_report_type .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.Hid.HidpReportType.HidP_Input">
@@ -712,6 +754,11 @@
         <member name="F:BurnsBac.WinApi.Hid.HidpReportType.HidP_Feature">
             <summary>
             Indicates a feature report.
+            </summary>
+        </member>
+        <member name="T:BurnsBac.WinApi.Hid.HidpStatus">
+            <summary>
+            Derived from error codes in WIN SDK 10.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.Hid.HidpStatus.HIDP_STATUS_SUCCESS">
@@ -774,7 +821,7 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ns-hidpi-_hidp_value_caps
-            https://github.com/tpn/winsdk-10/blob/master/Include/10.0.14393.0/shared/hidpi.h
+            https://github.com/tpn/winsdk-10/blob/master/Include/10.0.14393.0/shared/hidpi.h .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.Hid.HidpValueCaps.UsagePage">
@@ -905,6 +952,28 @@
             Specifies a usage's signed upper bound after scaling is applied to the logical maximum value.
             </summary>
         </member>
+        <member name="F:BurnsBac.WinApi.Hid.HidpValueCaps.Range">
+            <summary>
+            Value capability information for range.
+            </summary>
+        </member>
+        <member name="F:BurnsBac.WinApi.Hid.HidpValueCaps.NotRange">
+            <summary>
+            Value capability information for not-range.
+            </summary>
+        </member>
+        <member name="M:BurnsBac.WinApi.Hid.HidpValueCaps.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
+        </member>
+        <member name="M:BurnsBac.WinApi.Hid.HidpValueCaps.ToString">
+            <inheritdoc />
+        </member>
         <member name="T:BurnsBac.WinApi.Hid.HidpValueValueCapsNotRange">
             <summary>
             Union struct for <see cref="T:BurnsBac.WinApi.Hid.HidpValueCaps"/>.
@@ -949,6 +1018,15 @@
             <summary>
             Reserved for internal system use.
             </summary>
+        </member>
+        <member name="M:BurnsBac.WinApi.Hid.HidpValueValueCapsNotRange.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.HidpValueValueCapsRange">
             <summary>
@@ -1008,12 +1086,21 @@
             usage range Range.UsageMin to Range.UsageMax.
             </summary>
         </member>
+        <member name="M:BurnsBac.WinApi.Hid.HidpValueValueCapsRange.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
+        </member>
         <member name="T:BurnsBac.WinApi.Hid.HidUsagePages">
             <summary>
             HID Usage pages.
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Managed">
@@ -1054,7 +1141,7 @@
             Usages for AlphnumericDisplay usage page (20).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.BatterySystem">
@@ -1062,7 +1149,7 @@
             Usages for BatterySystem usage page (133).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.Consumer">
@@ -1070,7 +1157,7 @@
             Usages for Consumer usage page (12).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.Digitizer">
@@ -1078,7 +1165,7 @@
             Usages for Digitizer usage page (13).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.GameControl">
@@ -1086,7 +1173,7 @@
             Usages for Game Control usage page (5).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.GenericDesktop">
@@ -1094,7 +1181,7 @@
             Usages for Generic Desktop usage page (1).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.Keyboard">
@@ -1102,7 +1189,7 @@
             Usages for Keyboard usage page (7).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.LED">
@@ -1110,7 +1197,7 @@
             Usages for LED usage page (8).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.Hid.Usage.LED.Reserved_generic">
@@ -1123,7 +1210,7 @@
             Usages for Monitor usage page (128).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.PowerDevice">
@@ -1131,7 +1218,7 @@
             Usages for PowerDevice usage page (132).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.SimulationControl">
@@ -1139,7 +1226,7 @@
             Usages for SimulationControl usage page (2).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.SportsControl">
@@ -1147,7 +1234,7 @@
             Usages for Sports Control usage page (4).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.Telephony">
@@ -1155,7 +1242,7 @@
             Usages for Telephony usage page (11).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.VESACommand">
@@ -1163,7 +1250,7 @@
             Usages for VESACommand usage page (131).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.VESAVirtualControls">
@@ -1171,7 +1258,7 @@
             Usages for VESAVirtualControls usage page (130).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Hid.Usage.VRControl">
@@ -1179,8 +1266,13 @@
             Usages for VRControl usage page (3).
             </summary>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
+        </member>
+        <member name="T:BurnsBac.WinApi.Hid.Utility">
+            <summary>
+            Helper class for HID interaction.
+            </summary>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Utility.UsagePageAndUsageToString(System.Int32,System.Int32)">
             <summary>
@@ -1190,7 +1282,7 @@
             <param name="usageRaw">Usage from usage page.</param>
             <returns>Converted value, or originial int if not found.</returns>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Hid.Utility.UsagePageToString(System.Int32)">
@@ -1200,7 +1292,7 @@
             <param name="usagePageRaw">Usage page.</param>
             <returns>Converted value, or originial int if not found.</returns>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Kernel32.Api">
@@ -1230,7 +1322,7 @@
             name of the stream.For more information, see File Streams.
             </param>
             <param name="dwDesiredAccess">
-            The requested access to the file or device, which can be summarized as read, write, 
+            The requested access to the file or device, which can be summarized as read, write,
             both or neither zero).
             The most commonly used values are GENERIC_READ, GENERIC_WRITE, or both
             (GENERIC_READ | GENERIC_WRITE). For more information, see Generic Access Rights,
@@ -1297,7 +1389,7 @@
             If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended
             error information, call GetLastError.</returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea
+            https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Kernel32.Api.CreateFile(System.String,System.UInt32,System.UInt32,System.IntPtr,System.UInt32,System.UInt32,System.IntPtr)">
@@ -1322,7 +1414,7 @@
             name of the stream.For more information, see File Streams.
             </param>
             <param name="dwDesiredAccess">
-            The requested access to the file or device, which can be summarized as read, write, 
+            The requested access to the file or device, which can be summarized as read, write,
             both or neither zero).
             The most commonly used values are GENERIC_READ, GENERIC_WRITE, or both
             (GENERIC_READ | GENERIC_WRITE). For more information, see Generic Access Rights,
@@ -1389,7 +1481,7 @@
             If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended
             error information, call GetLastError.</returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea
+            https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Kernel32.Api.GetModuleHandle(System.String)">
@@ -1427,7 +1519,7 @@
             The System.IO flags do not support file access for devices.
             </summary>
             <remarks>
-            https://www.pinvoke.net/default.aspx/kernel32.CreateFile
+            https://www.pinvoke.net/default.aspx/kernel32.CreateFile .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.SetupApi.Api">
@@ -1442,11 +1534,11 @@
             <param name="dnDevInst">
             Caller-supplied device instance handle that is bound to the local machine.
             </param>
-            <param name="Buffer">
+            <param name="buffer">
             Address of a buffer to receive a device instance ID string. The required buffer size can be obtained by
             calling CM_Get_Device_ID_Size, then incrementing the received value to allow room for the string's
             terminating NULL.</param>
-            <param name="BufferLen">
+            <param name="bufferLen">
             Caller-supplied length, in characters, of the buffer specified by Buffer.
             </param>
             <param name="ulFlags">
@@ -1456,7 +1548,7 @@
             If the operation succeeds, the function returns CR_SUCCESS. Otherwise, it returns one
             of the CR_-prefixed error codes defined in Cfgmgr32.h.</returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/cfgmgr32/nf-cfgmgr32-cm_get_device_idw
+            https://docs.microsoft.com/en-us/windows/win32/api/cfgmgr32/nf-cfgmgr32-cm_get_device_idw .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.SetupApi.Api.CM_Get_Parent(System.IntPtr@,System.UInt32,System.Int32)">
@@ -1479,7 +1571,7 @@
             one of the CR_-prefixed error codes defined in Cfgmgr32.h.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/cfgmgr32/nf-cfgmgr32-cm_get_parent
+            https://docs.microsoft.com/en-us/windows/win32/api/cfgmgr32/nf-cfgmgr32-cm_get_parent .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.SetupApi.Api.SetupDiDestroyDeviceInfoList(System.IntPtr)">
@@ -1490,7 +1582,7 @@
             <returns>The function returns TRUE if it is successful. Otherwise, it returns FALSE and the
             logged error can be retrieved with a call to GetLastError.</returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdidestroydeviceinfolist
+            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdidestroydeviceinfolist .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.SetupApi.Api.SetupDiEnumDeviceInterfaces(System.IntPtr,System.IntPtr,System.Guid@,System.UInt32,BurnsBac.WinApi.SetupApi.SpDeviceInterfaceData@)">
@@ -1534,7 +1626,7 @@
             failure can be retrieved by calling GetLastError.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdienumdeviceinterfaces
+            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdienumdeviceinterfaces .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.SetupApi.Api.SetupDiEnumDeviceInterfaces(System.IntPtr,BurnsBac.WinApi.SetupApi.SpDevInfoData@,System.Guid@,System.UInt32,BurnsBac.WinApi.SetupApi.SpDeviceInterfaceData@)">
@@ -1578,7 +1670,7 @@
             failure can be retrieved by calling GetLastError.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdienumdeviceinterfaces
+            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdienumdeviceinterfaces .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.SetupApi.Api.SetupDiGetClassDevsW(System.Guid@,System.String,System.IntPtr,System.UInt32)">
@@ -1606,7 +1698,7 @@
             </term>
             </list>
             This pointer is optional and can be NULL.If an enumeration value is not used to select
-            devices, set Enumerator to NULL</param>
+            devices, set Enumerator to NULL.</param>
             <param name="hwndParent">
             A handle to the top-level window to be used for a user interface that is associated with
             installing a device instance in the device information set. This handle is optional and
@@ -1624,7 +1716,7 @@
             GetLastError.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdigetclassdevsw
+            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdigetclassdevsw .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.SetupApi.Api.SetupDiGetDeviceInterfaceDetailA(System.IntPtr,BurnsBac.WinApi.SetupApi.SpDeviceInterfaceData@,BurnsBac.WinApi.SetupApi.SpDeviceInterfaceDetailData@,System.UInt32,System.UInt32@,BurnsBac.WinApi.SetupApi.SpDevInfoData@)">
@@ -1649,7 +1741,7 @@
             data structure, not a size reflecting the variable-length string at the end.
             </param>
             <param name="deviceInterfaceDetailDataSize">
-            The size of the DeviceInterfaceDetailData buffer. The buffer must be at least 
+            The size of the DeviceInterfaceDetailData buffer. The buffer must be at least
             (offsetof(<see cref="T:BurnsBac.WinApi.SetupApi.SpDeviceInterfaceDetailData" />, DevicePath) + sizeof(TCHAR)) bytes, to contain
             the fixed part of the structure and a single NULL to terminate an empty MULTI_SZ string.
             This parameter must be zero if <paramref name="deviceInterfaceDetailData"/> is NULL.
@@ -1671,7 +1763,7 @@
             can be retrieved by calling GetLastError.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdigetdeviceinterfacedetaila
+            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/nf-setupapi-setupdigetdeviceinterfacedetaila .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.SetupApi.DiGetClassFlags">
@@ -1682,7 +1774,7 @@
             about combining these flags, see the following Remarks section.
             </summary>
             <remarks>
-            https://www.pinvoke.net/default.aspx/setupapi.setupdigetclassdevs
+            https://www.pinvoke.net/default.aspx/setupapi.setupdigetclassdevs .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.SetupApi.DiGetClassFlags.DIGCF_DEFAULT">
@@ -1719,7 +1811,7 @@
             An <see cref="T:BurnsBac.WinApi.SetupApi.SpDeviceInterfaceData"/> structure defines a device interface in a device information set.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_device_interface_data
+            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_device_interface_data .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.SetupApi.SpDeviceInterfaceData.cbSize">
@@ -1734,7 +1826,7 @@
         </member>
         <member name="F:BurnsBac.WinApi.SetupApi.SpDeviceInterfaceData.Flags">
             <summary>
-            SPINT_ACTIVE, SPINT_DEFAULT, SPINT_REMOVED
+            SPINT_ACTIVE, SPINT_DEFAULT, SPINT_REMOVED .
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.SetupApi.SpDeviceInterfaceData.Reserved">
@@ -1747,7 +1839,7 @@
             An SP_DEVICE_INTERFACE_DETAIL_DATA structure contains the path for a device interface.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_device_interface_detail_data_a
+            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_device_interface_detail_data_a .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.SetupApi.SpDeviceInterfaceDetailData.cbSize">
@@ -1765,7 +1857,7 @@
             An SP_DEVINFO_DATA structure defines a device instance that is a member of a device information set.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_devinfo_data
+            https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_devinfo_data .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.SetupApi.SpDevInfoData.cbSize">
@@ -1781,8 +1873,8 @@
         <member name="F:BurnsBac.WinApi.SetupApi.SpDevInfoData.DevInst">
             <summary>
             An opaque handle to the device instance (also known as a handle to the devnode).
-            Some functions, such as SetupDiXxx functions, take the whole SP_DEVINFO_DATA 
-            structure as input to identify a device in a device information set. Other 
+            Some functions, such as SetupDiXxx functions, take the whole SP_DEVINFO_DATA
+            structure as input to identify a device in a device information set. Other
             functions, such as CM_Xxx functions like CM_Get_DevNode_Status, take this
             DevInst handle as input.
             </summary>
@@ -1825,7 +1917,7 @@
             individual hook procedures.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-callnexthookex
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-callnexthookex .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.DispatchMessage(BurnsBac.WinApi.User32.WinUserMessage@)">
@@ -1838,7 +1930,7 @@
             Although its meaning depends on the message being dispatched, the return value
             generally is ignored.</returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-dispatchmessage
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-dispatchmessage .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.GetForegroundWindow">
@@ -1890,7 +1982,7 @@
             To get extended error information, call GetLastError.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmessage
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmessage .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.GetRawInputBuffer(System.IntPtr,System.UInt32@,System.Int32)">
@@ -1907,7 +1999,7 @@
             If an error occurs, the return value is (UINT)-1. Call GetLastError for the error code.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputbuffer
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputbuffer .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.GetRawInputData(System.IntPtr,BurnsBac.WinApi.User32.RawInputCommand,System.IntPtr,System.UInt32@,System.Int32)">
@@ -1924,7 +2016,7 @@
             NULL and the function is successful, the return value is the number of bytes copied into pData.
             If there is an error, the return value is (UINT)-1.</returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdata
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdata .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.GetRawInputDeviceInfo(System.IntPtr,BurnsBac.WinApi.User32.GetRawInputDeviceInfoCommand,BurnsBac.WinApi.User32.RidDeviceInfo@,System.UInt32@)">
@@ -1950,7 +2042,7 @@
             Call GetLastError to identify any other errors.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.GetRawInputDeviceInfo(System.IntPtr,BurnsBac.WinApi.User32.GetRawInputDeviceInfoCommand,System.IntPtr,System.UInt32@)">
@@ -1976,21 +2068,21 @@
             Call GetLastError to identify any other errors.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.GetRawInputDeviceList(BurnsBac.WinApi.User32.RawInputDeviceList[],System.UInt32@,System.UInt32)">
             <summary>
             Enumerates the raw input devices attached to the system.
             </summary>
-            <param name="RawInputDeviceList">
+            <param name="rawInputDeviceList">
             An array of RAWINPUTDEVICELIST structures for the devices attached to the system.
             If NULL, the number of devices are returned in *puiNumDevices.
             </param>
-            <param name="NumDevices">
+            <param name="numDevices">
             If pRawInputDeviceList is NULL, the function populates this variable with the number
             of devices attached to the system; otherwise, this variable specifies the number of
-            RAWINPUTDEVICELIST structures that can be contained in the buffer to which 
+            RAWINPUTDEVICELIST structures that can be contained in the buffer to which
             pRawInputDeviceList points. If this value is less than the number of devices attached
             to the system, the function returns the actual number of devices in this variable and
             fails with ERROR_INSUFFICIENT_BUFFER.
@@ -2003,7 +2095,7 @@
             error indication.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdevicelist
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdevicelist .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.GetWindowText(System.IntPtr,System.Text.StringBuilder,System.Int32)">
@@ -2036,7 +2128,7 @@
             <para>This function cannot retrieve the text of an edit control in another application.
             </para></returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getwindowtextw
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getwindowtextw .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.KillTimer(System.IntPtr,System.IntPtr)">
@@ -2058,7 +2150,7 @@
             If the function fails, the return value is zero.To get extended error information, call GetLastError.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-killtimer
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-killtimer .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.RegisterRawInputDevices(BurnsBac.WinApi.User32.RawInputDevice[],System.UInt32,System.UInt32)">
@@ -2070,7 +2162,7 @@
             <param name="cbSize">The size, in bytes, of a RAWINPUTDEVICE structure.</param>
             <returns>TRUE if the function succeeds; otherwise, FALSE. If the function fails, call GetLastError for more information.</returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerrawinputdevices
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerrawinputdevices .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.SetTimer(System.IntPtr,System.IntPtr,System.UInt32,System.IntPtr)">
@@ -2120,7 +2212,7 @@
             return value is zero. To get extended error information, call GetLastError.
             </para></returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-settimer
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-settimer .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.SetWindowsHookEx(BurnsBac.WinApi.User32.SetWindowsHookExType,System.Delegate,System.IntPtr,System.UInt32)">
@@ -2154,7 +2246,7 @@
             information, call GetLastError.
             </para></returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowshookexa
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowshookexa .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.TranslateMessage(BurnsBac.WinApi.User32.WinUserMessage@)">
@@ -2175,7 +2267,7 @@
             thread's message queue), the return value is zero.
             </returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-translatemessage
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-translatemessage .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Api.UnhookWindowsHookEx(System.IntPtr)">
@@ -2194,7 +2286,7 @@
             error information, call GetLastError.
             </para></returns>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-unhookwindowshookex
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-unhookwindowshookex .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.User32.GetRawInputDeviceInfoCommand">
@@ -2202,24 +2294,27 @@
             Command flag for <see cref="M:BurnsBac.WinApi.User32.Api.GetRawInputDeviceInfo(System.IntPtr,BurnsBac.WinApi.User32.GetRawInputDeviceInfoCommand,System.IntPtr,System.UInt32@)"/>.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdeviceinfoa .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.GetRawInputDeviceInfoCommand.RIDI_DEVICENAME">
             <summary>
+            <para>
             pData points to a string that contains the device name.
-            
+            </para>
+            <para>
             For this uiCommand only, the value in pcbSize is the character count (not the byte count).
+            </para>
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.GetRawInputDeviceInfoCommand.RIDI_DEVICEINFO">
             <summary>
-            pData points to an <see cref="T:BurnsBac.WinApi.User32.RidDeviceInfo"/> structure. 
+            pData points to an <see cref="T:BurnsBac.WinApi.User32.RidDeviceInfo"/> structure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.GetRawInputDeviceInfoCommand.RIDI_PREPARSEDDATA">
             <summary>
-            pData points to the previously parsed data. 
+            pData points to the previously parsed data.
             </summary>
         </member>
         <member name="T:BurnsBac.WinApi.User32.KeyboardLowLevelHookStruct">
@@ -2228,7 +2323,7 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct
-            http://www.pinvoke.net/default.aspx/Structures/KBDLLHOOKSTRUCT.html
+            http://www.pinvoke.net/default.aspx/Structures/KBDLLHOOKSTRUCT.html .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.KeyboardLowLevelHookStruct.vkCode">
@@ -2266,32 +2361,32 @@
             Flags used by <see cref="T:BurnsBac.WinApi.User32.KeyboardLowLevelHookStruct"/>.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.KeyboardLowLevelHookStructFlags.LLKHF_EXTENDED">
             <summary>
-            Test the extended-key flag. 
+            Test the extended-key flag.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.KeyboardLowLevelHookStructFlags.LLKHF_LOWER_IL_INJECTED">
             <summary>
-            Test the event-injected (from a process running at lower integrity level) flag. 
+            Test the event-injected (from a process running at lower integrity level) flag.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.KeyboardLowLevelHookStructFlags.LLKHF_INJECTED">
             <summary>
-            Test the event-injected (from any process) flag. 
+            Test the event-injected (from any process) flag.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.KeyboardLowLevelHookStructFlags.LLKHF_ALTDOWN">
             <summary>
-            Test the context code. 
+            Test the context code.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.KeyboardLowLevelHookStructFlags.LLKHF_UP">
             <summary>
-            Test the transition-state flag. 
+            Test the transition-state flag.
             </summary>
         </member>
         <member name="T:BurnsBac.WinApi.User32.Managed">
@@ -2306,7 +2401,7 @@
             For remote desktop and any other device driver that's registered
             as such a device.
             </summary>
-            <returns></returns>
+            <returns>List of raw input devices.</returns>
         </member>
         <member name="M:BurnsBac.WinApi.User32.Managed.GetRawInputData(System.IntPtr)">
             <summary>
@@ -2351,7 +2446,7 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msllhookstruct
-            http://www.pinvoke.net/default.aspx/Structures.MSLLHOOKSTRUCT
+            http://www.pinvoke.net/default.aspx/Structures.MSLLHOOKSTRUCT .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.MouseLowLevelHookStruct.pt">
@@ -2373,7 +2468,7 @@
             </para>
             </summary>
             <remarks>
-            this must be ints, not uints
+            this must be ints, not uints.
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.MouseLowLevelHookStruct.flags">
@@ -2400,7 +2495,7 @@
             One possible union for property <see cref="F:BurnsBac.WinApi.User32.RawInput.Data"/>.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawhid
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawhid .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawHid.dwSizeHid">
@@ -2418,12 +2513,21 @@
             The raw input data, as an array of bytes.
             </summary>
         </member>
+        <member name="M:BurnsBac.WinApi.User32.RawHid.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
+        </member>
         <member name="T:BurnsBac.WinApi.User32.RawInput">
             <summary>
             Contains the raw input from a device.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinput
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinput .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawInput.Header">
@@ -2436,6 +2540,15 @@
             Input data.
             </summary>
         </member>
+        <member name="M:BurnsBac.WinApi.User32.RawInput.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
+        </member>
         <member name="T:BurnsBac.WinApi.User32.RawInputCommand">
             <summary>
             Enumeration contanining the command types to issue.
@@ -2443,7 +2556,7 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdata
-            http://www.pinvoke.net/default.aspx/Enums/RawInputCommand.html
+            http://www.pinvoke.net/default.aspx/Enums/RawInputCommand.html .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawInputCommand.Input">
@@ -2462,7 +2575,7 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinput
-            
+            .
             I was having some kind of issue marsharlling this with the overlapping
             field offsets, so I made this non-union.
             </remarks>
@@ -2487,7 +2600,7 @@
             Defines information for the raw input devices.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputdevice
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputdevice .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawInputDevice.UsagePage">
@@ -2512,12 +2625,15 @@
             <see cref="M:BurnsBac.WinApi.Kernel32.Api.CreateFile(System.String,System.UInt32,System.UInt32,System.IntPtr,System.UInt32,System.UInt32,System.IntPtr)"/>.
             </summary>
         </member>
+        <member name="M:BurnsBac.WinApi.User32.RawInputDevice.ToString">
+            <inheritdoc />
+        </member>
         <member name="T:BurnsBac.WinApi.User32.RawInputDeviceFlags">
             <summary>
             Enumeration containing flags for a <see cref="T:BurnsBac.WinApi.User32.RawInputDevice"/>.
             </summary>
             <remarks>
-            http://pinvoke.net/default.aspx/Enums/RawInputDeviceFlags.html
+            http://pinvoke.net/default.aspx/Enums/RawInputDeviceFlags.html .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawInputDeviceFlags.None">
@@ -2582,7 +2698,7 @@
             Contains information about a raw input device.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputdevicelist
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputdevicelist .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawInputDeviceList.hDevice">
@@ -2602,22 +2718,22 @@
             Type flag for <see cref="T:BurnsBac.WinApi.User32.RidDeviceInfo"/>.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rid_device_info
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rid_device_info .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawInputDeviceType.Mouse">
             <summary>
-            Data comes from a mouse. 
+            Data comes from a mouse.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawInputDeviceType.Keyboard">
             <summary>
-            Data comes from a keyboard. 
+            Data comes from a keyboard.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawInputDeviceType.Hid">
             <summary>
-            Data comes from an HID that is not a keyboard or a mouse. 
+            Data comes from an HID that is not a keyboard or a mouse.
             </summary>
         </member>
         <member name="T:BurnsBac.WinApi.User32.RawInputHeader">
@@ -2625,7 +2741,7 @@
             Contains the header information that is part of the raw input data.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputheader
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinputheader .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawInputHeader.dwType">
@@ -2652,13 +2768,25 @@
             RIM_INPUT 0 if input occurred while application was in the foreground else RIM_INPUTSINK 1 if it was not.
             </summary>
         </member>
+        <member name="M:BurnsBac.WinApi.User32.RawInputHeader.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
+        </member>
+        <member name="M:BurnsBac.WinApi.User32.RawInputHeader.ToString">
+            <inheritdoc />
+        </member>
         <member name="T:BurnsBac.WinApi.User32.RawKeyboard">
             <summary>
             Contains information about the state of the keyboard.
             One possible union for property <see cref="F:BurnsBac.WinApi.User32.RawInput.Data"/>.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawkeyboard
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawkeyboard .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawKeyboard.Makecode">
@@ -2669,7 +2797,7 @@
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawKeyboard.Flags">
             <summary>
-            One or more of RI_KEY_MAKE, RI_KEY_BREAK, RI_KEY_E0, RI_KEY_E1
+            One or more of RI_KEY_MAKE, RI_KEY_BREAK, RI_KEY_E0, RI_KEY_E1.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawKeyboard.Reserved">
@@ -2692,6 +2820,18 @@
             The device-specific additional information for the event.
             </summary>
         </member>
+        <member name="M:BurnsBac.WinApi.User32.RawKeyboard.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
+        </member>
+        <member name="M:BurnsBac.WinApi.User32.RawKeyboard.ToString">
+            <inheritdoc />
+        </member>
         <member name="T:BurnsBac.WinApi.User32.RawMouse">
             <summary>
             Contains information about the state of the mouse.
@@ -2699,12 +2839,22 @@
             </summary>
             <remarks>
             http://www.pinvoke.net/default.aspx/Structures/RAWINPUTMOUSE.html
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawMouse.Flags">
             <summary>
             The mouse state.
+            </summary>
+        </member>
+        <member name="T:BurnsBac.WinApi.User32.RawMouse.Data">
+            <summary>
+            Data union.
+            </summary>
+        </member>
+        <member name="F:BurnsBac.WinApi.User32.RawMouse.Data.Buttons">
+            <summary>
+            Buttons.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawMouse.Data.ButtonData">
@@ -2716,6 +2866,15 @@
             <summary>
             Flags for the event.
             </summary>
+        </member>
+        <member name="M:BurnsBac.WinApi.User32.RawMouse.Data.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawMouse.RawMouseData">
             <summary>
@@ -2744,12 +2903,21 @@
             The device-specific additional information for the event.
             </summary>
         </member>
+        <member name="M:BurnsBac.WinApi.User32.RawMouse.FromBytes(System.Byte[],System.Int32,System.Int32@)">
+            <summary>
+            Creates object from raw bytes.
+            </summary>
+            <param name="bytes">Byte array to read from.</param>
+            <param name="offset">Offset to start reading from.</param>
+            <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+            <returns>New object.</returns>
+        </member>
         <member name="T:BurnsBac.WinApi.User32.RawMouseButtons">
             <summary>
             Enumeration containing the button data for raw mouse input.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawMouseButtons.None">
@@ -2817,7 +2985,7 @@
             Enumeration containing the flags for raw mouse data.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RawMouseFlags.MoveRelative">
@@ -2846,7 +3014,7 @@
             </summary>
             <remarks>
             https://www.pinvoke.net/default.aspx/user32/GetRawInputDeviceInfo%20.html
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rid_device_info
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rid_device_info .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RidDeviceInfo.Size">
@@ -2861,19 +3029,19 @@
         </member>
         <member name="F:BurnsBac.WinApi.User32.RidDeviceInfo.MouseInfo">
             <summary>
-            If <see cref="F:BurnsBac.WinApi.User32.RidDeviceInfo.Type"/> is <see cref="F:BurnsBac.WinApi.User32.RawInputDeviceType.Mouse"/>, 
+            If <see cref="F:BurnsBac.WinApi.User32.RidDeviceInfo.Type"/> is <see cref="F:BurnsBac.WinApi.User32.RawInputDeviceType.Mouse"/>,
             this is the <see cref="T:BurnsBac.WinApi.User32.RidDeviceInfoMouse"/> structure that defines the mouse.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RidDeviceInfo.KeyboardInfo">
             <summary>
-            If <see cref="F:BurnsBac.WinApi.User32.RidDeviceInfo.Type"/> is <see cref="F:BurnsBac.WinApi.User32.RawInputDeviceType.Keyboard"/>, 
+            If <see cref="F:BurnsBac.WinApi.User32.RidDeviceInfo.Type"/> is <see cref="F:BurnsBac.WinApi.User32.RawInputDeviceType.Keyboard"/>,
             this is the <see cref="T:BurnsBac.WinApi.User32.RidDeviceInfoKeyboard"/> structure that defines the keyboard.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RidDeviceInfo.HidInfo">
             <summary>
-            If <see cref="F:BurnsBac.WinApi.User32.RidDeviceInfo.Type"/> is <see cref="F:BurnsBac.WinApi.User32.RawInputDeviceType.Hid"/>, 
+            If <see cref="F:BurnsBac.WinApi.User32.RidDeviceInfo.Type"/> is <see cref="F:BurnsBac.WinApi.User32.RawInputDeviceType.Hid"/>,
             this is the <see cref="T:BurnsBac.WinApi.User32.RidDeviceInfoHid"/> structure that defines the HID device.
             </summary>
         </member>
@@ -2883,7 +3051,7 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rid_device_info_hid
-            https://www.pinvoke.net/default.aspx/user32/GetRawInputDeviceInfo%20.html
+            https://www.pinvoke.net/default.aspx/user32/GetRawInputDeviceInfo%20.html .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RidDeviceInfoHid.VendorID">
@@ -2917,7 +3085,7 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rid_device_info_keyboard
-            https://www.pinvoke.net/default.aspx/user32/GetRawInputDeviceInfo%20.html
+            https://www.pinvoke.net/default.aspx/user32/GetRawInputDeviceInfo%20.html .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RidDeviceInfoKeyboard.Type">
@@ -2956,7 +3124,7 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rid_device_info_mouse
-            https://www.pinvoke.net/default.aspx/user32/GetRawInputDeviceInfo%20.html
+            https://www.pinvoke.net/default.aspx/user32/GetRawInputDeviceInfo%20.html .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.RidDeviceInfoMouse.ID">
@@ -2985,53 +3153,53 @@
             </summary>
             <remarks>
             https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowshookexa
-            http://www.pinvoke.net/default.aspx/Enums/HookType.html
+            http://www.pinvoke.net/default.aspx/Enums/HookType.html .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_MSGFILTER">
             <summary>
             Installs a hook procedure that monitors messages generated as a result of an
             input event in a dialog box, message box, menu, or scroll bar. For more
-            information, see the MessageProc hook procedure. 
+            information, see the MessageProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_JOURNALRECORD">
             <summary>
             Installs a hook procedure that records input messages posted to the system
             message queue. This hook is useful for recording macros. For more information,
-            see the JournalRecordProc hook procedure. 
+            see the JournalRecordProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_JOURNALPLAYBACK">
             <summary>
             Installs a hook procedure that posts messages previously recorded by a
             WH_JOURNALRECORD hook procedure. For more information, see the
-            JournalPlaybackProc hook procedure. 
+            JournalPlaybackProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_KEYBOARD">
             <summary>
             Installs a hook procedure that monitors keystroke messages. For more information,
-            see the KeyboardProc hook procedure. 
+            see the KeyboardProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_GETMESSAGE">
             <summary>
             Installs a hook procedure that monitors messages posted to a message queue. For
-            more information, see the GetMsgProc hook procedure. 
+            more information, see the GetMsgProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_CALLWNDPROC">
             <summary>
             Installs a hook procedure that monitors messages before the system sends them to
             the destination window procedure. For more information, see the CallWndProc
-            hook procedure. 
+            hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_CBT">
             <summary>
             Installs a hook procedure that receives notifications useful to a CBT
-            application. For more information, see the CBTProc hook procedure. 
+            application. For more information, see the CBTProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_SYSMSGFILTER">
@@ -3039,50 +3207,55 @@
             Installs a hook procedure that monitors messages generated as a result of an input
             event in a dialog box, message box, menu, or scroll bar. The hook procedure monitors
             these messages for all applications in the same desktop as the calling thread. For
-            more information, see the SysMsgProc hook procedure. 
+            more information, see the SysMsgProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_MOUSE">
             <summary>
             Installs a hook procedure that monitors mouse messages. For more information, see
-            the MouseProc hook procedure. 
+            the MouseProc hook procedure.
+            </summary>
+        </member>
+        <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_HARDWARE">
+            <summary>
+            Hardware.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_DEBUG">
             <summary>
             Installs a hook procedure useful for debugging other hook procedures. For more
-            information, see the DebugProc hook procedure. 
+            information, see the DebugProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_SHELL">
             <summary>
             Installs a hook procedure that receives notifications useful to shell
-            applications. For more information, see the ShellProc hook procedure. 
+            applications. For more information, see the ShellProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_FOREGROUNDIDLE">
             <summary>
             Installs a hook procedure that will be called when the application's foreground thread
             is about to become idle. This hook is useful for performing low priority tasks during
-            idle time. For more information, see the ForegroundIdleProc hook procedure. 
+            idle time. For more information, see the ForegroundIdleProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_CALLWNDPROCRET">
             <summary>
             Installs a hook procedure that monitors messages after they have been processed by the
-            destination window procedure. For more information, see the CallWndRetProc hook procedure. 
+            destination window procedure. For more information, see the CallWndRetProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_KEYBOARD_LL">
             <summary>
             Installs a hook procedure that monitors low-level keyboard input events. For more
-            information, see the LowLevelKeyboardProc hook procedure. 
+            information, see the LowLevelKeyboardProc hook procedure.
             </summary>
         </member>
         <member name="F:BurnsBac.WinApi.User32.SetWindowsHookExType.WH_MOUSE_LL">
             <summary>
             Installs a hook procedure that monitors low-level mouse input events. For more
-            information, see the LowLevelMouseProc hook procedure. 
+            information, see the LowLevelMouseProc hook procedure.
             </summary>
         </member>
         <member name="T:BurnsBac.WinApi.User32.WinUserMessage">
@@ -3090,7 +3263,7 @@
             Contains message information from a thread's message queue.
             </summary>
             <remarks>
-            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msg
+            https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msg .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.User32.WinUserMessage.hwnd">
@@ -3209,7 +3382,7 @@
             <param name="usageRaw">Usage from usage page.</param>
             <returns>Converted value, or originial int if not found.</returns>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="M:BurnsBac.WinApi.Utility.UsagePageToString(System.Int32)">
@@ -3219,7 +3392,7 @@
             <param name="usagePageRaw">Usage page.</param>
             <returns>Converted value, or originial int if not found.</returns>
             <remarks>
-            https://www.freebsddiary.org/APC/usb_hid_usages.php
+            https://www.freebsddiary.org/APC/usb_hid_usages.php .
             </remarks>
         </member>
         <member name="T:BurnsBac.WinApi.Windows.Keys">
@@ -4207,7 +4380,7 @@
             Windows Messages.
             </summary>
             <remarks>
-            http://www.pinvoke.net/default.aspx/Enums/WindowsMessages.html
+            http://www.pinvoke.net/default.aspx/Enums/WindowsMessages.html .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.Windows.WindowsMessages.NULL">
@@ -5392,7 +5565,7 @@
             </summary>
             <remarks>
             http://pinvoke.net/default.aspx/Structures/POINT.html .
-            https://docs.microsoft.com/en-us/windows/win32/api/windef/ns-windef-point
+            https://docs.microsoft.com/en-us/windows/win32/api/windef/ns-windef-point .
             </remarks>
         </member>
         <member name="F:BurnsBac.WinApi.Windows.WindowsPoint.X">
@@ -5404,6 +5577,37 @@
             <summary>
             The y-coordinate of the point.
             </summary>
+        </member>
+        <member name="M:BurnsBac.WinApi.Windows.WindowsPoint.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnsBac.WinApi.Windows.WindowsPoint"/> struct.
+            </summary>
+            <param name="x">X position.</param>
+            <param name="y">Y position.</param>
+        </member>
+        <member name="P:BurnsBac.WinApi.Windows.WindowsPoint.Invalid">
+            <summary>
+            Gets a value indicating whether the point is invalid or not.
+            </summary>
+        </member>
+        <member name="M:BurnsBac.WinApi.Windows.WindowsPoint.op_Implicit(BurnsBac.WinApi.Windows.WindowsPoint)~System.Drawing.Point">
+            <summary>
+            Converts to point.
+            </summary>
+            <param name="p">Point to convert.</param>
+        </member>
+        <member name="M:BurnsBac.WinApi.Windows.WindowsPoint.op_Implicit(System.Drawing.Point)~BurnsBac.WinApi.Windows.WindowsPoint">
+            <summary>
+            Converts to point.
+            </summary>
+            <param name="p">Point to convert.</param>
+        </member>
+        <member name="M:BurnsBac.WinApi.Windows.WindowsPoint.Delta(BurnsBac.WinApi.Windows.WindowsPoint)">
+            <summary>
+            Calculates delta to a point.
+            </summary>
+            <param name="p">Point to find delta to.</param>
+            <returns>Difference between the two points.</returns>
         </member>
     </members>
 </doc>

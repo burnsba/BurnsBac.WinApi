@@ -12,7 +12,7 @@ namespace BurnsBac.WinApi.User32
     /// </summary>
     /// <remarks>
     /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getrawinputdata
-    /// http://www.pinvoke.net/default.aspx/Enums/RawInputCommand.html
+    /// http://www.pinvoke.net/default.aspx/Enums/RawInputCommand.html .
     /// </remarks>
     public enum RawInputCommand
     {
@@ -24,6 +24,6 @@ namespace BurnsBac.WinApi.User32
         /// <summary>
         /// Get header data.
         /// </summary>
-        Header = 0x10000005
+        Header = 0x10000005,
     }
 }

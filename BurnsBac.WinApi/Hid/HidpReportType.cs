@@ -8,7 +8,7 @@ namespace BurnsBac.WinApi.Hid
     /// The HIDP_REPORT_TYPE enumeration type is used to specify a HID report type.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ne-hidpi-_hidp_report_type
+    /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ne-hidpi-_hidp_report_type .
     /// </remarks>
     public enum HidpReportType : int
     {
@@ -25,6 +25,6 @@ namespace BurnsBac.WinApi.Hid
         /// <summary>
         /// Indicates a feature report.
         /// </summary>
-        HidP_Feature
+        HidP_Feature,
     }
 }

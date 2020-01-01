@@ -6,20 +6,33 @@
     <Company>Ben Burns</Company>
     <Product>BurnsBac.WinApi</Product>
     <Copyright>Ben Burns 2019</Copyright>
-    <FileVersion>1.1.5.2</FileVersion>
+    <FileVersion>1.1.5.3</FileVersion>
     <PackageProjectUrl>https://github.com/burnsba/BurnsBac.WinApi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/burnsba/BurnsBac.WinApi</RepositoryUrl>
     <PackageTags>win32, pinvoke, interop</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageLicenseFile>COPYING</PackageLicenseFile>
+    <Description>Extern definitions and managed wrappers for PInvoke system calls.
+
+Covers user32, kernel32, setupapi, and hid (dlls).</Description>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <PackageReleaseNotes>Stylecop styling</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\Users\tolos\code\csharp\BurnsBac.WinApi\BurnsBac.WinApi\BurnsBac.WinApi.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\tolos\code\csharp\BurnsBac.WinApi\BurnsBac.WinApi\BurnsBac.WinApi.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

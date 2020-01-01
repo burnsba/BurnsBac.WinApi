@@ -10,9 +10,10 @@ namespace BurnsBac.WinApi.Hid
     /// </summary>
     /// <remarks>
     /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/ns-hidpi-_hidp_value_caps
-    /// https://github.com/tpn/winsdk-10/blob/master/Include/10.0.14393.0/shared/hidpi.h
+    /// https://github.com/tpn/winsdk-10/blob/master/Include/10.0.14393.0/shared/hidpi.h .
     /// </remarks>
     [StructLayout(LayoutKind.Explicit)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "explicit layout")]
     public struct HidpValueCaps
     {
         /// <summary>
@@ -138,11 +139,13 @@ namespace BurnsBac.WinApi.Hid
         [MarshalAs(UnmanagedType.U2)]
         public ushort ReportCount;
 
+#pragma warning disable SA1600 // Elements should be documented
+#pragma warning disable SA1516 // Elements should be documented
         /// <summary>
         /// Reserved for internal system use.
         /// </summary>
         [FieldOffset(22)]
-        //[MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
+        //////[MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         internal ushort Reserved2a;
         [FieldOffset(24)]
         internal ushort Reserved2b;
@@ -152,6 +155,8 @@ namespace BurnsBac.WinApi.Hid
         internal ushort Reserved2d;
         [FieldOffset(30)]
         internal ushort Reserved2e;
+#pragma warning restore SA1516 // Elements should be documented
+#pragma warning restore SA1600 // Elements should be documented
 
         /// <summary>
         /// Specifies the usage's exponent, as described by the USB HID standard.
@@ -195,20 +200,26 @@ namespace BurnsBac.WinApi.Hid
         [MarshalAs(UnmanagedType.U4)]
         public int PhysicalMax;
 
+        /// <summary>
+        /// Value capability information for range.
+        /// </summary>
         [FieldOffset(56)]
         public HidpValueValueCapsRange Range;
 
+        /// <summary>
+        /// Value capability information for not-range.
+        /// </summary>
         [FieldOffset(56)]
         public HidpValueValueCapsNotRange NotRange;
 
-        public override string ToString()
-        {
-            if (IsRange)
-                return Utility.UsagePageToString(UsagePage);
-
-            return Utility.UsagePageAndUsageToString(UsagePage, NotRange.Usage);
-        }
-
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static HidpValueCaps FromBytes(byte[] bytes, int offset, out int nextByteOffset)
         {
             int nextOffset;
@@ -229,7 +240,7 @@ namespace BurnsBac.WinApi.Hid
                 HasNull = bytes[offset + 16] > 0 ? true : false,
                 BitSize = (ushort)(((ushort)bytes[offset + 19] << 8) | (ushort)(bytes[offset + 18])),
                 ReportCount = (ushort)(((ushort)bytes[offset + 21] << 8) | (ushort)(bytes[offset + 20])),
-                // skip reserved
+                ////// skip reserved
                 UnitsExp = (uint)(((uint)bytes[offset + 35] << 24) | ((uint)bytes[offset + 34] << 16) | ((uint)bytes[offset + 33] << 8) | (uint)(bytes[offset + 32])),
                 Units = (uint)(((uint)bytes[offset + 39] << 24) | ((uint)bytes[offset + 38] << 16) | ((uint)bytes[offset + 37] << 8) | (uint)(bytes[offset + 36])),
                 LogicalMin = (int)(((int)bytes[offset + 43] << 24) | ((int)bytes[offset + 42] << 16) | ((int)bytes[offset + 41] << 8) | (int)(bytes[offset + 40])),
@@ -237,12 +248,23 @@ namespace BurnsBac.WinApi.Hid
                 PhysicalMin = (int)(((int)bytes[offset + 51] << 24) | ((int)bytes[offset + 50] << 16) | ((int)bytes[offset + 49] << 8) | (int)(bytes[offset + 48])),
                 PhysicalMax = (int)(((int)bytes[offset + 55] << 24) | ((int)bytes[offset + 54] << 16) | ((int)bytes[offset + 53] << 8) | (int)(bytes[offset + 52])),
 
-                Range = HidpValueValueCapsRange.FromBytes(bytes, offset + 56, out nextOffset)
+                Range = HidpValueValueCapsRange.FromBytes(bytes, offset + 56, out nextOffset),
             };
 
             nextByteOffset = nextOffset;
 
             return hbc;
+        }
+
+        /// <inheritdoc />
+        public override string ToString()
+        {
+            if (IsRange)
+            {
+                return Utility.UsagePageToString(UsagePage);
+            }
+
+            return Utility.UsagePageAndUsageToString(UsagePage, NotRange.Usage);
         }
     }
 }

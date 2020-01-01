@@ -9,6 +9,7 @@ namespace BurnsBac.WinApi.Hid
     /// Union struct for <see cref="HidpButtonCaps"/>.
     /// </summary>
     [StructLayout(LayoutKind.Explicit)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "WinApi")]
     public struct HidpButtonCapsNotRange
     {
         /// <summary>
@@ -51,6 +52,7 @@ namespace BurnsBac.WinApi.Hid
         /// Indicates the data index of the usage specified by NotRange.Usage.
         /// </summary>
         [FieldOffset(12)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "explicit layout")]
         public ushort DataIndex;
 
         /// <summary>
@@ -59,6 +61,13 @@ namespace BurnsBac.WinApi.Hid
         [FieldOffset(14)]
         internal ushort Reserved4;
 
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static HidpButtonCapsNotRange FromByteArray(byte[] bytes, int offset)
         {
             var hbc = new HidpButtonCapsNotRange()

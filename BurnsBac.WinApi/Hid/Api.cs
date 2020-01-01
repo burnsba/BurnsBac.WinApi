@@ -8,6 +8,8 @@ namespace BurnsBac.WinApi.Hid
     /// <summary>
     /// Function definitions for hid.dll.
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1009:", Justification = "file style")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1111:", Justification = "file style")]
     public static class Api
     {
         /// <summary>
@@ -17,7 +19,7 @@ namespace BurnsBac.WinApi.Hid
         /// </summary>
         /// <param name="reportType">One of HidP_Input, HidP_Output, or HidP_Feature.</param>
         /// <param name="buttonCaps">
-        /// A _HIDP_BUTTON_CAPS array containing information about all the 
+        /// A _HIDP_BUTTON_CAPS array containing information about all the
         /// binary values in the given report.This buffer is provided by
         /// the caller.
         /// </param>
@@ -34,7 +36,7 @@ namespace BurnsBac.WinApi.Hid
         /// <param name="preparsedData">The preparsed data returned from HIDCLASS.</param>
         /// <returns>HIDP_STATUS_SUCCESS, HIDP_STATUS_INVALID_PREPARSED_DATA.</returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getbuttoncaps
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getbuttoncaps .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern long HidP_GetButtonCaps(
@@ -47,22 +49,22 @@ namespace BurnsBac.WinApi.Hid
         /// <summary>
         /// The HidP_GetCaps routine returns a top-level collection's HIDP_CAPS structure.
         /// </summary>
-        /// <param name="PreparsedData">
+        /// <param name="preparsedData">
         /// Pointer to a top-level collection's preparsed data.
         /// </param>
-        /// <param name="Capabilities">
+        /// <param name="capabilities">
         /// Pointer to a caller-allocated buffer that the routine uses to return a collection's HIDP_CAPS structure.
         /// </param>
         /// <returns>
         /// HIDP_STATUS_SUCCESS, HIDP_STATUS_INVALID_PREPARSED_DATA.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getcaps
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getcaps .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern long HidP_GetCaps(
-            IntPtr PreparsedData,
-            out HidpCaps Capabilities);
+            IntPtr preparsedData,
+            out HidpCaps capabilities);
 
         /// <summary>
         /// The HidD_GetHidGuid routine returns the device interfaceGUID for HIDClass devices.
@@ -70,7 +72,7 @@ namespace BurnsBac.WinApi.Hid
         /// <param name="hidGuid">Pointer to a caller-allocated GUID buffer that the routine
         /// uses to return the device interface GUID for HIDClass devices.</param>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_gethidguid
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_gethidguid .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern void HidD_GetHidGuid(
@@ -95,7 +97,7 @@ namespace BurnsBac.WinApi.Hid
         /// Use GetLastError to get extended error information.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getinputreport
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getinputreport .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern bool HidD_GetInputReport(
@@ -117,7 +119,7 @@ namespace BurnsBac.WinApi.Hid
         /// returned for a given ReportType. If non-zero, will return
         /// the maximum number of usages that would be returned for the
         /// ReportType with the given UsagePage.</param>
-        /// <param name="preparsedData">Preparsed data returned from HIDCLASS</param>
+        /// <param name="preparsedData">Preparsed data returned from HIDCLASS.</param>
         /// <returns>
         /// The length of the usage list array required for the HidP_GetUsages or
         /// HidP_GetUsagesEx function call.If an error occurs(such as
@@ -125,7 +127,7 @@ namespace BurnsBac.WinApi.Hid
         /// returns 0.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_maxusagelistlength
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_maxusagelistlength .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern ulong HidP_MaxUsageListLength(
@@ -157,7 +159,7 @@ namespace BurnsBac.WinApi.Hid
         /// error information.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getmanufacturerstring
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getmanufacturerstring .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern bool HidD_GetManufacturerString(
@@ -185,7 +187,7 @@ namespace BurnsBac.WinApi.Hid
         /// Use GetLastError to get extended error information.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getphysicaldescriptor
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidsdi/nf-hidsdi-hidd_getphysicaldescriptor .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern bool HidD_GetPhysicalDescriptor(
@@ -283,9 +285,9 @@ namespace BurnsBac.WinApi.Hid
         /// determine the maximum length needed to return all the usages
         /// that a given report packet may contain.
         /// </param>
-        /// <param name="preparsedData">Preparsed data structure returned by HIDCLASS</param>
+        /// <param name="preparsedData">Preparsed data structure returned by HIDCLASS.</param>
         /// <param name="report">The report packet.</param>
-        /// <param name="reportLength">Length (in bytes) of the given report packet</param>
+        /// <param name="reportLength">Length (in bytes) of the given report packet.</param>
         /// <returns>
         /// HIDP_STATUS_SUCCESS,
         /// HIDP_INVALID_REPORT_LENGTH,
@@ -296,7 +298,7 @@ namespace BurnsBac.WinApi.Hid
         /// HIDP_STATUS_USAGE_NOT_FOUND.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getusages
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getusages .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern long HidP_GetUsages(
@@ -326,21 +328,21 @@ namespace BurnsBac.WinApi.Hid
         /// is zero, this function will set the first field
         /// it finds that matches the usage page and
         /// usage.</param>
-        /// <param name="usage">The usage whose value HidP_GetUsageValue will retrieve</param>
+        /// <param name="usage">The usage whose value HidP_GetUsageValue will retrieve.</param>
         /// <param name="usageValue">The raw value that is set for the specified field in the report
         /// buffer.This value will either fall within the logical range
         /// or if NULL values are allowed, a number outside the range to
-        /// indicate a NULL</param>
-        /// <param name="preparsedData">The preparsed data returned for HIDCLASS</param>
+        /// indicate a NULL.</param>
+        /// <param name="preparsedData">The preparsed data returned for HIDCLASS.</param>
         /// <param name="report">The report packet.</param>
         /// <param name="reportLength">Length (in bytes) of the given report packet.</param>
         /// <returns>
         /// HIDP_STATUS_SUCCESS, HIDP_INVALID_REPORT_LENGTH,
-        /// HIDP_INVALID_REPORT_TYPE, HIDP_STATUS_INCOMPATIBLE_REPORT_ID, 
+        /// HIDP_INVALID_REPORT_TYPE, HIDP_STATUS_INCOMPATIBLE_REPORT_ID,
         /// HIDP_STATUS_INVALID_PREPARSED_DATA, HIDP_STATUS_USAGE_NOT_FOUND.
         /// </returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getusagevalue
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getusagevalue .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern ulong HidP_GetUsageValue(
@@ -370,9 +372,9 @@ namespace BurnsBac.WinApi.Hid
         /// the routine sets ValueCapsLength to the number of elements that the it actually returns.
         /// </param>
         /// <param name="preparsedData">Pointer to a top-level collection's preparsed data.</param>
-        /// <returns>HIDP_STATUS_SUCCESS, HIDP_STATUS_INVALID_PREPARSED_DATA</returns>
+        /// <returns>HIDP_STATUS_SUCCESS, HIDP_STATUS_INVALID_PREPARSED_DATA.</returns>
         /// <remarks>
-        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getvaluecaps
+        /// https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/hidpi/nf-hidpi-hidp_getvaluecaps .
         /// </remarks>
         [DllImport("hid.dll", SetLastError = true)]
         public static extern long HidP_GetValueCaps(

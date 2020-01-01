@@ -11,7 +11,7 @@ namespace BurnsBac.WinApi.User32
     /// Contains the raw input from a device.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinput
+    /// https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawinput .
     /// </remarks>
     public struct RawInput
     {
@@ -25,6 +25,14 @@ namespace BurnsBac.WinApi.User32
         /// </summary>
         public RawInputData Data;
 
+        /// <summary>
+        /// Creates object from raw bytes.
+        /// </summary>
+        /// <param name="bytes">Byte array to read from.</param>
+        /// <param name="offset">Offset to start reading from.</param>
+        /// <param name="nextByteOffset">Index for the byte after the last byte read to create this object.</param>
+        /// <returns>New object.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:Statement should not use unnecessary parenthesis", Justification = "WinApi")]
         public static RawInput FromBytes(byte[] bytes, int offset, out int nextByteOffset)
         {
             RawInput ri;
@@ -41,8 +49,8 @@ namespace BurnsBac.WinApi.User32
                     Header = header,
                     Data = new RawInputData()
                     {
-                        Mouse = RawMouse.FromBytes(bytes, headerOffset, out dataOffset)
-                    }
+                        Mouse = RawMouse.FromBytes(bytes, headerOffset, out dataOffset),
+                    },
                 };
             }
             else if ((int)bytes[offset] == (int)RawInputDeviceType.Keyboard)
@@ -52,8 +60,8 @@ namespace BurnsBac.WinApi.User32
                     Header = header,
                     Data = new RawInputData()
                     {
-                        Keyboard = RawKeyboard.FromBytes(bytes, headerOffset, out dataOffset)
-                    }
+                        Keyboard = RawKeyboard.FromBytes(bytes, headerOffset, out dataOffset),
+                    },
                 };
             }
             else if ((int)bytes[offset] == (int)RawInputDeviceType.Hid)
@@ -63,8 +71,8 @@ namespace BurnsBac.WinApi.User32
                     Header = header,
                     Data = new RawInputData()
                     {
-                        Hid = RawHid.FromBytes(bytes, headerOffset, out dataOffset)
-                    }
+                        Hid = RawHid.FromBytes(bytes, headerOffset, out dataOffset),
+                    },
                 };
             }
             else

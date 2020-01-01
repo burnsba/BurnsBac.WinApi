@@ -8,8 +8,11 @@ namespace BurnsBac.WinApi.Kernel32
     /// The System.IO flags do not support file access for devices.
     /// </summary>
     /// <remarks>
-    /// https://www.pinvoke.net/default.aspx/kernel32.CreateFile
+    /// https://www.pinvoke.net/default.aspx/kernel32.CreateFile .
     /// </remarks>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:Enumeration items should be documented", Justification = "WinApi")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "CS1591", Justification = "WinApi")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.SpacingRules", "SA1025:Code should not contain multiple whitespace in a row", Justification = "WinApi")]
     public enum CreateFileDesiredAccess : uint
     {
         AccessSystemSecurity = 0x1000000,   // AccessSystemAcl access type
@@ -45,8 +48,7 @@ namespace BurnsBac.WinApi.Kernel32
 
         //
         // Generic Section
-        //
-
+        ////
         GENERIC_READ    = 0x80000000,
         GENERIC_WRITE   = 0x40000000,
         GENERIC_EXECUTE = 0x20000000,

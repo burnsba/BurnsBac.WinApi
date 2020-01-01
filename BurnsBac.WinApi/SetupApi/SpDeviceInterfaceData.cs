@@ -9,7 +9,7 @@ namespace BurnsBac.WinApi.SetupApi
     /// An <see cref="SpDeviceInterfaceData"/> structure defines a device interface in a device information set.
     /// </summary>
     /// <remarks>
-    /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_device_interface_data
+    /// https://docs.microsoft.com/en-us/windows/win32/api/setupapi/ns-setupapi-sp_device_interface_data .
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
     public struct SpDeviceInterfaceData
@@ -25,7 +25,7 @@ namespace BurnsBac.WinApi.SetupApi
         public Guid InterfaceClassGuid;
 
         /// <summary>
-        /// SPINT_ACTIVE, SPINT_DEFAULT, SPINT_REMOVED
+        /// SPINT_ACTIVE, SPINT_DEFAULT, SPINT_REMOVED .
         /// </summary>
         public uint Flags;
 
